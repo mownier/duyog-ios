@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B913CE931F00A4AF00916D40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913CE911F00A4AF00916D40 /* Main.storyboard */; };
+		B913CE951F00A4AF00916D40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B913CE941F00A4AF00916D40 /* Assets.xcassets */; };
+		B913CE981F00A4AF00916D40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913CE961F00A4AF00916D40 /* LaunchScreen.storyboard */; };
+		B913CEA31F00A4AF00916D40 /* DuyogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913CEA21F00A4AF00916D40 /* DuyogTests.swift */; };
+		B913CEAE1F00A4AF00916D40 /* DuyogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913CEAD1F00A4AF00916D40 /* DuyogUITests.swift */; };
+		B96CA5111F00AA65007422A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA5101F00AA65007422A7 /* AppDelegate.swift */; };
+		B96CA5171F00AAF5007422A7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA5161F00AAF5007422A7 /* SignInViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B913CE9F1F00A4AF00916D40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B913CE821F00A4AF00916D40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B913CE891F00A4AF00916D40;
+			remoteInfo = Duyog;
+		};
+		B913CEAA1F00A4AF00916D40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B913CE821F00A4AF00916D40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B913CE891F00A4AF00916D40;
+			remoteInfo = Duyog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B913CE8A1F00A4AF00916D40 /* Duyog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Duyog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B913CE921F00A4AF00916D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B913CE941F00A4AF00916D40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B913CE971F00A4AF00916D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B913CE991F00A4AF00916D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B913CE9E1F00A4AF00916D40 /* DuyogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DuyogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B913CEA21F00A4AF00916D40 /* DuyogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuyogTests.swift; sourceTree = "<group>"; };
+		B913CEA41F00A4AF00916D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B913CEA91F00A4AF00916D40 /* DuyogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DuyogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B913CEAD1F00A4AF00916D40 /* DuyogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuyogUITests.swift; sourceTree = "<group>"; };
+		B913CEAF1F00A4AF00916D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B96CA5101F00AA65007422A7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B96CA5161F00AAF5007422A7 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B913CE871F00A4AF00916D40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B913CE9B1F00A4AF00916D40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B913CEA61F00A4AF00916D40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B913CE811F00A4AF00916D40 = {
+			isa = PBXGroup;
+			children = (
+				B913CE8C1F00A4AF00916D40 /* Duyog */,
+				B913CEA11F00A4AF00916D40 /* DuyogTests */,
+				B913CEAC1F00A4AF00916D40 /* DuyogUITests */,
+				B913CE8B1F00A4AF00916D40 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B913CE8B1F00A4AF00916D40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B913CE8A1F00A4AF00916D40 /* Duyog.app */,
+				B913CE9E1F00A4AF00916D40 /* DuyogTests.xctest */,
+				B913CEA91F00A4AF00916D40 /* DuyogUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B913CE8C1F00A4AF00916D40 /* Duyog */ = {
+			isa = PBXGroup;
+			children = (
+				B913CE991F00A4AF00916D40 /* Info.plist */,
+				B96CA50B1F00A9CA007422A7 /* Resources */,
+				B96CA50E1F00AA65007422A7 /* Source */,
+			);
+			path = Duyog;
+			sourceTree = "<group>";
+		};
+		B913CEA11F00A4AF00916D40 /* DuyogTests */ = {
+			isa = PBXGroup;
+			children = (
+				B913CEA21F00A4AF00916D40 /* DuyogTests.swift */,
+				B913CEA41F00A4AF00916D40 /* Info.plist */,
+			);
+			path = DuyogTests;
+			sourceTree = "<group>";
+		};
+		B913CEAC1F00A4AF00916D40 /* DuyogUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B913CEAD1F00A4AF00916D40 /* DuyogUITests.swift */,
+				B913CEAF1F00A4AF00916D40 /* Info.plist */,
+			);
+			path = DuyogUITests;
+			sourceTree = "<group>";
+		};
+		B96CA50B1F00A9CA007422A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B913CE941F00A4AF00916D40 /* Assets.xcassets */,
+				B913CE961F00A4AF00916D40 /* LaunchScreen.storyboard */,
+				B913CE911F00A4AF00916D40 /* Main.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B96CA50E1F00AA65007422A7 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B96CA50F1F00AA65007422A7 /* Application */,
+				B96CA5141F00AADD007422A7 /* Modules */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B96CA50F1F00AA65007422A7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B96CA5101F00AA65007422A7 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B96CA5141F00AADD007422A7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B96CA5151F00AADD007422A7 /* SignIn */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		B96CA5151F00AADD007422A7 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				B96CA5161F00AAF5007422A7 /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B913CE891F00A4AF00916D40 /* Duyog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B913CEB21F00A4AF00916D40 /* Build configuration list for PBXNativeTarget "Duyog" */;
+			buildPhases = (
+				B913CE861F00A4AF00916D40 /* Sources */,
+				B913CE871F00A4AF00916D40 /* Frameworks */,
+				B913CE881F00A4AF00916D40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Duyog;
+			productName = Duyog;
+			productReference = B913CE8A1F00A4AF00916D40 /* Duyog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B913CE9D1F00A4AF00916D40 /* DuyogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B913CEB51F00A4AF00916D40 /* Build configuration list for PBXNativeTarget "DuyogTests" */;
+			buildPhases = (
+				B913CE9A1F00A4AF00916D40 /* Sources */,
+				B913CE9B1F00A4AF00916D40 /* Frameworks */,
+				B913CE9C1F00A4AF00916D40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B913CEA01F00A4AF00916D40 /* PBXTargetDependency */,
+			);
+			name = DuyogTests;
+			productName = DuyogTests;
+			productReference = B913CE9E1F00A4AF00916D40 /* DuyogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B913CEA81F00A4AF00916D40 /* DuyogUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B913CEB81F00A4AF00916D40 /* Build configuration list for PBXNativeTarget "DuyogUITests" */;
+			buildPhases = (
+				B913CEA51F00A4AF00916D40 /* Sources */,
+				B913CEA61F00A4AF00916D40 /* Frameworks */,
+				B913CEA71F00A4AF00916D40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B913CEAB1F00A4AF00916D40 /* PBXTargetDependency */,
+			);
+			name = DuyogUITests;
+			productName = DuyogUITests;
+			productReference = B913CEA91F00A4AF00916D40 /* DuyogUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B913CE821F00A4AF00916D40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Ner;
+				TargetAttributes = {
+					B913CE891F00A4AF00916D40 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4WBRGV5Z9M;
+						ProvisioningStyle = Automatic;
+					};
+					B913CE9D1F00A4AF00916D40 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4WBRGV5Z9M;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B913CE891F00A4AF00916D40;
+					};
+					B913CEA81F00A4AF00916D40 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4WBRGV5Z9M;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B913CE891F00A4AF00916D40;
+					};
+				};
+			};
+			buildConfigurationList = B913CE851F00A4AF00916D40 /* Build configuration list for PBXProject "Duyog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B913CE811F00A4AF00916D40;
+			productRefGroup = B913CE8B1F00A4AF00916D40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B913CE891F00A4AF00916D40 /* Duyog */,
+				B913CE9D1F00A4AF00916D40 /* DuyogTests */,
+				B913CEA81F00A4AF00916D40 /* DuyogUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B913CE881F00A4AF00916D40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B913CE981F00A4AF00916D40 /* LaunchScreen.storyboard in Resources */,
+				B913CE951F00A4AF00916D40 /* Assets.xcassets in Resources */,
+				B913CE931F00A4AF00916D40 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B913CE9C1F00A4AF00916D40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B913CEA71F00A4AF00916D40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B913CE861F00A4AF00916D40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B96CA5171F00AAF5007422A7 /* SignInViewController.swift in Sources */,
+				B96CA5111F00AA65007422A7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B913CE9A1F00A4AF00916D40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B913CEA31F00A4AF00916D40 /* DuyogTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B913CEA51F00A4AF00916D40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B913CEAE1F00A4AF00916D40 /* DuyogUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B913CEA01F00A4AF00916D40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B913CE891F00A4AF00916D40 /* Duyog */;
+			targetProxy = B913CE9F1F00A4AF00916D40 /* PBXContainerItemProxy */;
+		};
+		B913CEAB1F00A4AF00916D40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B913CE891F00A4AF00916D40 /* Duyog */;
+			targetProxy = B913CEAA1F00A4AF00916D40 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B913CE911F00A4AF00916D40 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B913CE921F00A4AF00916D40 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B913CE961F00A4AF00916D40 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B913CE971F00A4AF00916D40 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B913CEB01F00A4AF00916D40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B913CEB11F00A4AF00916D40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B913CEB31F00A4AF00916D40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4WBRGV5Z9M;
+				INFOPLIST_FILE = Duyog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ner.Duyog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B913CEB41F00A4AF00916D40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4WBRGV5Z9M;
+				INFOPLIST_FILE = Duyog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ner.Duyog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		B913CEB61F00A4AF00916D40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 4WBRGV5Z9M;
+				INFOPLIST_FILE = DuyogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ner.DuyogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Duyog.app/Duyog";
+			};
+			name = Debug;
+		};
+		B913CEB71F00A4AF00916D40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 4WBRGV5Z9M;
+				INFOPLIST_FILE = DuyogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ner.DuyogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Duyog.app/Duyog";
+			};
+			name = Release;
+		};
+		B913CEB91F00A4AF00916D40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 4WBRGV5Z9M;
+				INFOPLIST_FILE = DuyogUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ner.DuyogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Duyog;
+			};
+			name = Debug;
+		};
+		B913CEBA1F00A4AF00916D40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 4WBRGV5Z9M;
+				INFOPLIST_FILE = DuyogUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ner.DuyogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Duyog;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B913CE851F00A4AF00916D40 /* Build configuration list for PBXProject "Duyog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B913CEB01F00A4AF00916D40 /* Debug */,
+				B913CEB11F00A4AF00916D40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B913CEB21F00A4AF00916D40 /* Build configuration list for PBXNativeTarget "Duyog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B913CEB31F00A4AF00916D40 /* Debug */,
+				B913CEB41F00A4AF00916D40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B913CEB51F00A4AF00916D40 /* Build configuration list for PBXNativeTarget "DuyogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B913CEB61F00A4AF00916D40 /* Debug */,
+				B913CEB71F00A4AF00916D40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B913CEB81F00A4AF00916D40 /* Build configuration list for PBXNativeTarget "DuyogUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B913CEB91F00A4AF00916D40 /* Debug */,
+				B913CEBA1F00A4AF00916D40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B913CE821F00A4AF00916D40 /* Project object */;
+}
