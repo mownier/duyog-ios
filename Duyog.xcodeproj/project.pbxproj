@@ -27,6 +27,7 @@
 		B96CA5301F00D30F007422A7 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B96CA5261F00D30F007422A7 /* OpenSans-Semibold.ttf */; };
 		B96CA5311F00D30F007422A7 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B96CA5271F00D30F007422A7 /* OpenSans-SemiboldItalic.ttf */; };
 		B96CA5341F00EB38007422A7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA5331F00EB38007422A7 /* SignUpViewController.swift */; };
+		B96CA5371F00F01A007422A7 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA5361F00F01A007422A7 /* PasswordResetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		B96CA5261F00D30F007422A7 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		B96CA5271F00D30F007422A7 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		B96CA5331F00EB38007422A7 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B96CA5361F00F01A007422A7 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 		B96CA5141F00AADD007422A7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B96CA5351F00F00E007422A7 /* PasswordReset */,
 				B96CA5151F00AADD007422A7 /* SignIn */,
 				B96CA5321F00EB22007422A7 /* SignUp */,
 			);
@@ -226,6 +229,14 @@
 				B96CA5331F00EB38007422A7 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		B96CA5351F00F00E007422A7 /* PasswordReset */ = {
+			isa = PBXGroup;
+			children = (
+				B96CA5361F00F01A007422A7 /* PasswordResetViewController.swift */,
+			);
+			path = PasswordReset;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B96CA51A1F00AF4E007422A7 /* UITheme.swift in Sources */,
+				B96CA5371F00F01A007422A7 /* PasswordResetViewController.swift in Sources */,
 				B96CA5171F00AAF5007422A7 /* SignInViewController.swift in Sources */,
 				B96CA51C1F00B5B7007422A7 /* GradientView.swift in Sources */,
 				B96CA5111F00AA65007422A7 /* AppDelegate.swift in Sources */,
