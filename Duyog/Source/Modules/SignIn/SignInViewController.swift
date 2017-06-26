@@ -229,7 +229,7 @@ class SignInViewController: UIViewController {
     }
     
     func didTapForgotPasswordButton() {
-        
+        showPasswordReset()
     }
     
     func showSignUp() {
@@ -238,6 +238,18 @@ class SignInViewController: UIViewController {
         }), let vc = navigationController?.viewControllers[index] else {
             let signIn = SignUpViewController()
             navigationController?.pushViewController(signIn, animated: true)
+            return
+        }
+        
+        let _ = navigationController?.popToViewController(vc, animated: true)
+    }
+    
+    func showPasswordReset() {
+        guard let index = navigationController?.viewControllers.index(where: { vc -> Bool in
+            return vc is PasswordResetViewController
+        }), let vc = navigationController?.viewControllers[index] else {
+            let passwordReset = PasswordResetViewController()
+            navigationController?.pushViewController(passwordReset, animated: true)
             return
         }
         
