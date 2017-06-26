@@ -221,7 +221,7 @@ class SignInViewController: UIViewController {
     }
     
     func didTapFooterLabel() {
-        
+        showSignUp()
     }
     
     func didTapGoButton() {
@@ -230,6 +230,18 @@ class SignInViewController: UIViewController {
     
     func didTapForgotPasswordButton() {
         
+    }
+    
+    func showSignUp() {
+        guard let index = navigationController?.viewControllers.index(where: { vc -> Bool in
+            return vc is SignUpViewController
+        }), let vc = navigationController?.viewControllers[index] else {
+            let signIn = SignUpViewController()
+            navigationController?.pushViewController(signIn, animated: true)
+            return
+        }
+        
+        let _ = navigationController?.popToViewController(vc, animated: true)
     }
 }
 
