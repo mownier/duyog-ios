@@ -17,6 +17,8 @@
 		B95C9E441F02003E00A5D6CB /* SignUpInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C9E431F02003E00A5D6CB /* SignUpInputView.swift */; };
 		B95C9E461F02034000A5D6CB /* PasswordResetInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C9E451F02034000A5D6CB /* PasswordResetInputView.swift */; };
 		B95C9E481F020B7600A5D6CB /* InitialAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C9E471F020B7600A5D6CB /* InitialAnimator.swift */; };
+		B95C9E4A1F021DF800A5D6CB /* KeyboardObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C9E491F021DF800A5D6CB /* KeyboardObserverProtocol.swift */; };
+		B95C9E4C1F022DC100A5D6CB /* InitialKeyboardObserverHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C9E4B1F022DC100A5D6CB /* InitialKeyboardObserverHandler.swift */; };
 		B96CA5111F00AA65007422A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA5101F00AA65007422A7 /* AppDelegate.swift */; };
 		B96CA5171F00AAF5007422A7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA5161F00AAF5007422A7 /* SignInViewController.swift */; };
 		B96CA51A1F00AF4E007422A7 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA5191F00AF4E007422A7 /* UITheme.swift */; };
@@ -69,6 +71,8 @@
 		B95C9E431F02003E00A5D6CB /* SignUpInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInputView.swift; sourceTree = "<group>"; };
 		B95C9E451F02034000A5D6CB /* PasswordResetInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetInputView.swift; sourceTree = "<group>"; };
 		B95C9E471F020B7600A5D6CB /* InitialAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialAnimator.swift; sourceTree = "<group>"; };
+		B95C9E491F021DF800A5D6CB /* KeyboardObserverProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserverProtocol.swift; sourceTree = "<group>"; };
+		B95C9E4B1F022DC100A5D6CB /* InitialKeyboardObserverHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialKeyboardObserverHandler.swift; sourceTree = "<group>"; };
 		B96CA5101F00AA65007422A7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B96CA5161F00AAF5007422A7 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B96CA5191F00AF4E007422A7 /* UITheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				B95C9E451F02034000A5D6CB /* PasswordResetInputView.swift */,
 				B95C9E411F01F9DC00A5D6CB /* SignInInputView.swift */,
 				B95C9E431F02003E00A5D6CB /* SignUpInputView.swift */,
+				B95C9E4B1F022DC100A5D6CB /* InitialKeyboardObserverHandler.swift */,
 			);
 			path = Initial;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			children = (
 				B96CA5191F00AF4E007422A7 /* UITheme.swift */,
 				B96CA51B1F00B5B7007422A7 /* GradientView.swift */,
+				B95C9E491F021DF800A5D6CB /* KeyboardObserverProtocol.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -409,6 +415,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95C9E4A1F021DF800A5D6CB /* KeyboardObserverProtocol.swift in Sources */,
+				B95C9E4C1F022DC100A5D6CB /* InitialKeyboardObserverHandler.swift in Sources */,
 				B96CA51A1F00AF4E007422A7 /* UITheme.swift in Sources */,
 				B95C9E481F020B7600A5D6CB /* InitialAnimator.swift in Sources */,
 				B95C9E401F01F76A00A5D6CB /* InitialViewController.swift in Sources */,
