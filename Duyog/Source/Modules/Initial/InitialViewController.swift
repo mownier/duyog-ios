@@ -33,6 +33,8 @@ class InitialViewController: UIViewController {
     var passwordResetView: PasswordResetInputView!
     
     var animator: InitialAnimator!
+    var keyboardObserver: KeyboardObserverProtocol!
+    var keyboardHandler: InitialKeyboardObserverHandler!
     
     var state: InitialViewControllerState = .signIn {
         didSet {
@@ -122,6 +124,16 @@ class InitialViewController: UIViewController {
         animator.signInView = signInView
         animator.signUpView = signUpView
         animator.passwordResetView = passwordResetView
+        
+        keyboardHandler = InitialKeyboardObserverHandler()
+        keyboardHandler.signInView = signInView
+        keyboardHandler.signUpView = signUpView
+        keyboardHandler.passwordResetView = passwordResetView
+        keyboardHandler.contentView = view
+        
+        let observer = KeyboardObserver()
+        observer.delegate = keyboardHandler
+        keyboardObserver = observer
     }
     
     override func viewDidLoad() {
@@ -152,6 +164,18 @@ class InitialViewController: UIViewController {
             signInView.alpha = 0
             signUpView.alpha = 0
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        keyboardObserver.add()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        keyboardObserver.remove()
     }
     
     override func viewDidLayoutSubviews() {
