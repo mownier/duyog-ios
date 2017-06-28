@@ -60,8 +60,8 @@ class KeyboardObserver: KeyboardObserverProtocol {
         let rectBegin = frameBegin.cgRectValue
         
         var info = KeyboardObserverInfo()
-        info.frameDelta.height = rectEnd.size.height - rectBegin.size.height
-        info.frameDelta.y = rectEnd.origin.y - rectBegin.origin.y
+        info.frameHeight = rectEnd.height
+        info.deltaHeight = rectEnd.height - rectBegin.height
         info.animationCurve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt) ?? 0
         info.animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? Double) ?? 0
         
@@ -74,25 +74,16 @@ class KeyboardObserver: KeyboardObserverProtocol {
     }
 }
 
-struct KeyboardFrameDelta {
-    
-    var height: CGFloat
-    var y: CGFloat
-    
-    init() {
-        height = 0
-        y = 0
-    }
-}
-
 struct KeyboardObserverInfo {
     
-    var frameDelta: KeyboardFrameDelta
+    var deltaHeight: CGFloat
+    var frameHeight: CGFloat
     var animationCurve: UInt
     var animationDuration: Double
     
     init() {
-        frameDelta = KeyboardFrameDelta()
+        deltaHeight = 0
+        frameHeight = 0
         animationCurve = 0
         animationDuration = 0
     }
