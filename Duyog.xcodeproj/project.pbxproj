@@ -168,11 +168,11 @@
 			isa = PBXGroup;
 			children = (
 				B95C9E471F020B7600A5D6CB /* InitialAnimator.swift */,
+				B95C9E4B1F022DC100A5D6CB /* InitialKeyboardObserverHandler.swift */,
 				B95C9E3F1F01F76A00A5D6CB /* InitialViewController.swift */,
 				B95C9E451F02034000A5D6CB /* PasswordResetInputView.swift */,
 				B95C9E411F01F9DC00A5D6CB /* SignInInputView.swift */,
 				B95C9E431F02003E00A5D6CB /* SignUpInputView.swift */,
-				B95C9E4B1F022DC100A5D6CB /* InitialKeyboardObserverHandler.swift */,
 			);
 			path = Initial;
 			sourceTree = "<group>";
