@@ -25,14 +25,13 @@ class InitialKeyboardObserverHandler: KeyboardObserverDelegate {
         var animations: (() -> Void)?
         
         let bottomMargin = (contentView.frame.height - targetView.frame.maxY)
-        let diff = bottomMargin + info.frameDelta.y
         
-        if info.frameDelta.height == 0 {
+        if info.deltaHeight == 0 {
             switch direction {
             case .up:
-                if diff < 0 {
+                if info.frameHeight > bottomMargin {
                     animations = {
-                        targetView.frame.origin.y += diff
+                        targetView.frame.origin.y -= (info.frameHeight - bottomMargin)
                     }
                 }
             
@@ -43,13 +42,11 @@ class InitialKeyboardObserverHandler: KeyboardObserverDelegate {
             }
             
         } else {
-            animations = {
-                switch direction {
-                case .up: targetView.frame.origin.y -= abs(info.frameDelta.height)
-                case .down: targetView.frame.origin.y += abs(info.frameDelta.height)
+            if info.frameHeight > bottomMargin {
+                animations = {
+                    targetView.frame.origin.y -= info.deltaHeight
                 }
             }
-
         }
         
         if animations != nil {
