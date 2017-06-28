@@ -233,7 +233,9 @@ class InitialViewController: UIViewController {
     }
     
     func didTapGoButton() {
-        
+        let home = HomeViewController()
+        let nav = home.embedInNavigationController()
+        view.window?.rootViewController = nav
     }
     
     func didChangeValueForTextField(_ textField: UITextField) {
