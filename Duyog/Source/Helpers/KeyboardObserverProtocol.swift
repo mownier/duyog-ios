@@ -88,3 +88,97 @@ struct KeyboardObserverInfo {
         animationDuration = 0
     }
 }
+
+class KeyboardAdjustment {
+    
+    enum Direction {
+        
+        case up
+        case down
+    }
+    
+    weak var contentView: UIView!
+    weak var targetView: UIView!
+    
+    var originalFrame: CGRect = .zero
+    
+    init(contentView: UIView, targetView: UIView) {
+        self.contentView = contentView
+        self.targetView = targetView
+    }
+    
+    func adjust(_ info: KeyboardObserverInfo, direction: Direction) {
+        var animations: (() -> Void)?
+        
+        let bottomMargin = (contentView.frame.height - targetView.frame.maxY)
+        
+        if info.deltaHeight == 0 {
+            switch direction {
+            case .up:
+                originalFrame = targetView.frame
+                if info.frameHeight > bottomMargin {
+                    animations = {
+                        self.targetView.frame.origin.y -= (info.frameHeight - bottomMargin)
+                    }
+                }
+                
+            case .down:
+                animations = {
+                    self.targetView.frame = self.originalFrame
+                }
+            }
+            
+        } else {
+            if info.frameHeight > bottomMargin {
+                animations = {
+                    self.targetView.frame.origin.y -= info.deltaHeight
+                }
+            }
+        }
+        
+        if animations != nil {
+            UIView.animate(
+                withDuration: info.animationDuration,
+                delay: 0,
+                options: UIViewAnimationOptions(rawValue: info.animationCurve << 16),
+                animations: animations!,
+                completion: { _ in })
+        }
+    }
+}
+
+class KeyboardAdjustmentHandler: KeyboardObserverDelegate {
+    
+    var adjustments: [KeyboardAdjustment]
+    
+    init(adjustments: [KeyboardAdjustment]) {
+        self.adjustments = adjustments
+    }
+    
+    func keyboardWillMoveDown(_ info: KeyboardObserverInfo) {
+        for adjustment in adjustments { adjustment.adjust(info, direction: .down) }
+    }
+    
+    func keyboardWillMoveUp(_ info: KeyboardObserverInfo) {
+        for adjustment in adjustments { adjustment.adjust(info, direction: .up) }
+    }
+}
+
+class KeyboardManager {
+    
+    var handler: KeyboardObserverDelegate
+    var observer: KeyboardObserverProtocol
+    
+    class func create(adjustments: [KeyboardAdjustment]) -> KeyboardManager {
+        let handler = KeyboardAdjustmentHandler(adjustments: adjustments)
+        let observer = KeyboardObserver()
+        observer.delegate = handler
+        let manager = KeyboardManager(observer: observer, handler: handler)
+        return manager
+    }
+    
+    init(observer: KeyboardObserverProtocol, handler: KeyboardObserverDelegate) {
+        self.handler = handler
+        self.observer = observer
+    }
+}
