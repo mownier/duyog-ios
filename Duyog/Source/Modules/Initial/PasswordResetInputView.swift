@@ -12,6 +12,10 @@ class PasswordResetInputView: GradientView {
 
     var emailTextField: UITextField!
     
+    var isEditing: Bool {
+        return emailTextField.isFirstResponder
+    }
+    
     convenience init() {
         self.init(frame: .zero)
         initSetup()

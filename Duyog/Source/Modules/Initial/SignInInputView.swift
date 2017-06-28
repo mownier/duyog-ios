@@ -21,6 +21,10 @@ class SignInInputView: UIView {
     var passwordTextField: UITextField!
     var stripView: UIView!
     
+    var isEditing: Bool {
+        return emailTextField.isFirstResponder || passwordTextField.isFirstResponder
+    }
+    
     weak var delegate: SignInInputViewDelegate?
     
     convenience init() {

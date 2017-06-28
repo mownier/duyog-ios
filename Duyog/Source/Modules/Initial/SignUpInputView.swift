@@ -17,6 +17,10 @@ class SignUpInputView: UIView {
     var strip1View: UIView!
     var strip2View: UIView!
 
+    var isEditing: Bool {
+        return displayNameTextField.isFirstResponder || emailTextField.isFirstResponder || passwordTextField.isFirstResponder
+    }
+    
     convenience init() {
         self.init(frame: .zero)
         initSetup()
