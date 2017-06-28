@@ -33,8 +33,7 @@ class InitialViewController: UIViewController {
     var passwordResetView: PasswordResetInputView!
     
     var animator: InitialAnimator!
-    var keyboardObserver: KeyboardObserverProtocol!
-    var keyboardHandler: InitialKeyboardObserverHandler!
+    var keyboardManager: KeyboardManager!
     
     var state: InitialViewControllerState = .signIn {
         didSet {
@@ -125,15 +124,11 @@ class InitialViewController: UIViewController {
         animator.signUpView = signUpView
         animator.passwordResetView = passwordResetView
         
-        keyboardHandler = InitialKeyboardObserverHandler()
-        keyboardHandler.signInView = signInView
-        keyboardHandler.signUpView = signUpView
-        keyboardHandler.passwordResetView = passwordResetView
-        keyboardHandler.contentView = view
-        
-        let observer = KeyboardObserver()
-        observer.delegate = keyboardHandler
-        keyboardObserver = observer
+        let signInViewAdjustment = KeyboardAdjustment(contentView: view, targetView: signInView)
+        let signUpViewAdjustment = KeyboardAdjustment(contentView: view, targetView: signUpView)
+        let passwordResetViewAdjustment = KeyboardAdjustment(contentView: view, targetView: passwordResetView)
+        let adjustments = [signInViewAdjustment, signUpViewAdjustment, passwordResetViewAdjustment]
+        keyboardManager = KeyboardManager.create(adjustments: adjustments)
     }
     
     override func viewDidLoad() {
@@ -169,13 +164,13 @@ class InitialViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        keyboardObserver.add()
+        keyboardManager.observer.add()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        keyboardObserver.remove()
+        keyboardManager.observer.remove()
     }
     
     override func viewDidLayoutSubviews() {
