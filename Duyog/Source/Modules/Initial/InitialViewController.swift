@@ -35,6 +35,12 @@ class InitialViewController: UIViewController {
     var animator: InitialAnimator!
     var keyboardManager: KeyboardManager!
     
+    var isEnteringInput: Bool {
+        guard isViewLoaded else { return false }
+        
+        return signInView.isEditing || signUpView.isEditing || passwordResetView.isEditing
+    }
+    
     var state: InitialViewControllerState = .signIn {
         didSet {
             guard isViewLoaded, oldValue != state else { return }
@@ -47,14 +53,17 @@ class InitialViewController: UIViewController {
             
             switch state {
             case .signIn:
+                if isEnteringInput { signInView.emailTextField.becomeFirstResponder() }
                 animator.changeFooterText(state.footerText)
                 animator.showSignInView()
                 
             case .signUp:
+                if isEnteringInput { signUpView.displayNameTextField.becomeFirstResponder() }
                 animator.changeFooterText(state.footerText)
                 animator.showSignUpView()
                 
             case .passwordReset:
+                if isEnteringInput { passwordResetView.emailTextField.becomeFirstResponder() }
                 animator.changeFooterText(state.footerText)
                 animator.showPasswordResetView()
             }
