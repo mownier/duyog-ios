@@ -14,8 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let navRoot = InitialViewController()
+        let nav = createNavigationController(navRoot)
+        window?.rootViewController = nav
         return true
     }
+}
+
+func createNavigationController(_ root: UIViewController) -> UINavigationController {
+    let nav = UINavigationController(rootViewController: root)
+    nav.isNavigationBarHidden = true
+    nav.navigationBar.isTranslucent = false
+    return nav
 }
 
