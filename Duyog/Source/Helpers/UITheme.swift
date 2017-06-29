@@ -59,4 +59,8 @@ struct UIThemeColor {
     var gray: UIColor {
         return UIColor(red: 123/255, green: 133/255, blue: 154/255, alpha: 1)
     }
+    
+    var blue: UIColor {
+        return UIColor(red: 81/255, green: 101/255, blue: 138/255, alpha: 1)
+    }
 }
