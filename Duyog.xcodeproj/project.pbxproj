@@ -39,10 +39,10 @@
 		B96CA5371F00F01A007422A7 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA5361F00F01A007422A7 /* PasswordResetViewController.swift */; };
 		B992BBFB1F048BAD00F063C4 /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BBFA1F048BAD00F063C4 /* HomeContentViewController.swift */; };
 		B992BBFD1F048C4D00F063C4 /* HomeContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BBFC1F048C4D00F063C4 /* HomeContentCell.swift */; };
-		B992BBFF1F048CEA00F063C4 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BBFE1F048CEA00F063C4 /* ReusableProtocol.swift */; };
 		B992BC011F04922E00F063C4 /* HomeContentViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BC001F04922E00F063C4 /* HomeContentViewItem.swift */; };
 		B992BC031F0492BB00F063C4 /* HomeContentCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BC021F0492BB00F063C4 /* HomeContentCellItem.swift */; };
 		B992BC051F0498AB00F063C4 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BC041F0498AB00F063C4 /* HomeCell.swift */; };
+		B992BC091F04A46300F063C4 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BC081F04A46300F063C4 /* ReusableProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,10 +101,10 @@
 		B96CA5361F00F01A007422A7 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		B992BBFA1F048BAD00F063C4 /* HomeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
 		B992BBFC1F048C4D00F063C4 /* HomeContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentCell.swift; sourceTree = "<group>"; };
-		B992BBFE1F048CEA00F063C4 /* ReusableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReusableProtocol.swift; path = ../../../../../../../Dibz/DibzParking/DibzParking/Source/Util/ReusableProtocol.swift; sourceTree = "<group>"; };
 		B992BC001F04922E00F063C4 /* HomeContentViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewItem.swift; sourceTree = "<group>"; };
 		B992BC021F0492BB00F063C4 /* HomeContentCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentCellItem.swift; sourceTree = "<group>"; };
 		B992BC041F0498AB00F063C4 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		B992BC081F04A46300F063C4 /* ReusableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,7 +259,7 @@
 		B96CA5181F00AF36007422A7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B992BBFE1F048CEA00F063C4 /* ReusableProtocol.swift */,
+				B992BC081F04A46300F063C4 /* ReusableProtocol.swift */,
 				B96CA5191F00AF4E007422A7 /* UITheme.swift */,
 				B96CA51B1F00B5B7007422A7 /* GradientView.swift */,
 				B95C9E491F021DF800A5D6CB /* KeyboardObserverProtocol.swift */,
@@ -455,8 +455,8 @@
 				B992BBFD1F048C4D00F063C4 /* HomeContentCell.swift in Sources */,
 				B95C9E401F01F76A00A5D6CB /* InitialViewController.swift in Sources */,
 				B91232061F036F3D0021A078 /* HomeViewController.swift in Sources */,
+				B992BC091F04A46300F063C4 /* ReusableProtocol.swift in Sources */,
 				B96CA5371F00F01A007422A7 /* PasswordResetViewController.swift in Sources */,
-				B992BBFF1F048CEA00F063C4 /* ReusableProtocol.swift in Sources */,
 				B95C9E441F02003E00A5D6CB /* SignUpInputView.swift in Sources */,
 				B95C9E421F01F9DC00A5D6CB /* SignInInputView.swift in Sources */,
 				B96CA5171F00AAF5007422A7 /* SignInViewController.swift in Sources */,
