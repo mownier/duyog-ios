@@ -12,6 +12,9 @@ class HomeViewController: UIViewController {
     
     var navigationTitleLabel: UILabel?
     var header: HomeHeader!
+    var flowLayout: UICollectionViewFlowLayout!
+    var collectionView: UICollectionView!
+    var contentItems: [HomeContentViewItem] = []
     
     override func loadView() {
         super.loadView()
@@ -22,13 +25,50 @@ class HomeViewController: UIViewController {
         
         header = HomeHeader()
         
+        flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 12
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.contentInset.top = 228
+        collectionView.alwaysBounceVertical = true
+        collectionView.backgroundColor = .clear
+        collectionView.dataSource = self
+        
         view.addSubview(header)
+        view.addSubview(collectionView)
+        
+        HomeCell.register(in: collectionView)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationItem()
+        
+        var item = HomeContentViewDisplayItem()
+        var cellItem = HomeContentCellDisplayItem()
+        
+        item.headerTitleText = "POPULAR ARTISTS"
+        
+        cellItem.titleText = "Beyonce"
+        cellItem.subtitleText = "195 Songs"
+        item.cellItems.append(cellItem)
+        
+        cellItem.titleText = "Eminem"
+        cellItem.subtitleText = "296 Songs"
+        item.cellItems.append(cellItem)
+        
+        cellItem.titleText = "Lady Gaga"
+        cellItem.subtitleText = "98 Songs"
+        item.cellItems.append(cellItem)
+        
+        cellItem.titleText = "Britney Spears"
+        cellItem.subtitleText = "237 Songs"
+        item.cellItems.append(cellItem)
+        
+        contentItems.append(item)
+        contentItems.append(item)
+        contentItems.append(item)
+        contentItems.append(item)
     }
     
     func setupNavigationItem() {
@@ -67,6 +107,13 @@ class HomeViewController: UIViewController {
         rect.size.width = view.frame.width
         rect.size.height = 208
         header.frame = rect
+        
+        rect.size.height = view.frame.height
+        collectionView.frame = rect
+        
+        flowLayout.itemSize.width = rect.width
+        flowLayout.itemSize.height = 188
+        collectionView.reloadData()
     }
     
     func didTapMenu() {
@@ -84,5 +131,19 @@ class HomeViewController: UIViewController {
         nav.navigationBar.isTranslucent = true
         nav.navigationBar.tintColor = UIColor.white
         return nav
+    }
+}
+
+extension HomeViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return contentItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = HomeCell.dequeue(from: collectionView, at: indexPath)
+        let item = contentItems[indexPath.row]
+        cell.content.item = item
+        return cell
     }
 }
