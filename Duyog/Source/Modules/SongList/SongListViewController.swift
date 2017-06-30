@@ -123,7 +123,8 @@ class SongListViewController: UIViewController {
     }
     
     func didTapPlayButton() {
-        
+        let player = MusicPlayerViewController()
+        player.present(from: self)
     }
 }
 
