@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     var collectionView: UICollectionView!
     var contentItems: [HomeContentViewItem] = []
     
+    
     override func loadView() {
         super.loadView()
         
@@ -121,7 +122,30 @@ class HomeViewController: UIViewController {
     }
     
     func didTapSearch() {
+        var item = SongListViewDisplayItem()
+        var headerItem = item.headerItem as! SongListHeaderDisplayItem
+        headerItem.descriptionText = "Coldpay is a British rock band formed in 1996 by lead vocalist and keyboardist Chris Martin"
+        headerItem.titleText = "Coldplay"
+        headerItem.subtitleText = "ALTERNATIVE ROCK"
+        item.headerItem = headerItem
         
+        var cellItem = SongListCellDisplayItem()
+        cellItem.titleText = "A Head Full of Dreams"
+        item.cellItems.append(cellItem)
+        cellItem.titleText = "A Whisper"
+        item.cellItems.append(cellItem)
+        cellItem.titleText = "Amsterdam"
+        item.cellItems.append(cellItem)
+        cellItem.titleText = "Always In My Head"
+        item.cellItems.append(cellItem)
+        cellItem.titleText = "Careful Where You Go"
+        item.cellItems.append(cellItem)
+        
+        let vc = SongListViewController()
+        vc.title = "ARTIST"
+        vc.item = item
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     func embedInNavigationController() -> UINavigationController {
