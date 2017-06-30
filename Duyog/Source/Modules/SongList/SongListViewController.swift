@@ -15,6 +15,7 @@ class SongListViewController: UIViewController {
     var header: SongListHeader!
     var tableView: UITableView!
     var prototype: SongListCell!
+    var playButton: UIButton!
     
     var item: SongListViewItem! {
         didSet {
@@ -43,7 +44,17 @@ class SongListViewController: UIViewController {
         
         prototype = SongListCell()
         
+        playButton = GradientButton()
+        playButton.tintColor = .white
+        playButton.gradientLayer.colors = [theme.color.pink.cgColor, theme.color.violet.cgColor]
+        playButton.gradientLayer.gradient = GradientPoint.topRightBottomLeft.draw()
+        playButton.addTarget(self, action: #selector(self.didTapPlayButton), for: .touchUpInside)
+        playButton.setImage(#imageLiteral(resourceName: "icon_line_play"), for: .normal)
+        playButton.setImage(#imageLiteral(resourceName: "icon_line_play"), for: .highlighted)
+        playButton.layer.masksToBounds = true
+
         view.addSubview(tableView)
+        view.addSubview(playButton)
         
         SongListCell.register(in: tableView)
     }
@@ -73,6 +84,13 @@ class SongListViewController: UIViewController {
         header.frame = rect
         
         tableView.reloadData()
+        
+        rect.size.width = 60
+        rect.size.height = rect.width
+        rect.origin.x = (view.frame.width - rect.width) / 2
+        rect.origin.y = view.frame.height - rect.height - 16
+        playButton.frame = rect
+        playButton.layer.cornerRadius = rect.width / 2
     }
     
     func setupNavigationItem() {
@@ -102,6 +120,10 @@ class SongListViewController: UIViewController {
     
     func didTapBack() {
         let _ = navigationController?.popViewController(animated: true)
+    }
+    
+    func didTapPlayButton() {
+        
     }
 }
 
