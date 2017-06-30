@@ -74,3 +74,11 @@ extension GradientViewProvider where Self: UIView, Self.GradientViewType: CAGrad
 extension UIView: GradientViewProvider {
     typealias GradientViewType = GradientLayer
 }
+
+class GradientButton: UIButton {
+    override public class var layerClass: Swift.AnyClass {
+        get {
+            return GradientLayer.self
+        }
+    }
+}
