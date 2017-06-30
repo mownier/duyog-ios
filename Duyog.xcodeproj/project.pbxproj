@@ -49,6 +49,13 @@
 		B9A8956D1F04C54B008C5833 /* SongListCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8956C1F04C54B008C5833 /* SongListCellItem.swift */; };
 		B9A8956F1F04C986008C5833 /* SongListViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8956E1F04C986008C5833 /* SongListViewItem.swift */; };
 		B9A895711F04C9B5008C5833 /* SongListHeaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A895701F04C9B5008C5833 /* SongListHeaderItem.swift */; };
+		B9A971EE1F05F18E00ACCA8F /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A971ED1F05F18E00ACCA8F /* MusicPlayerViewController.swift */; };
+		B9A971F01F05F2DD00ACCA8F /* MusicPlayerTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A971EF1F05F2DD00ACCA8F /* MusicPlayerTrackView.swift */; };
+		B9A971F21F05F2F700ACCA8F /* MusicPlayerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A971F11F05F2F700ACCA8F /* MusicPlayerControl.swift */; };
+		B9A971F41F05F56200ACCA8F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A971F31F05F56200ACCA8F /* UIViewExtension.swift */; };
+		B9A971F91F061BB400ACCA8F /* MusicPlayerTrackViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A971F81F061BB400ACCA8F /* MusicPlayerTrackViewItem.swift */; };
+		B9A971FB1F061D8F00ACCA8F /* MusicPlayerViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A971FA1F061D8F00ACCA8F /* MusicPlayerViewItem.swift */; };
+		B9A971FD1F06369800ACCA8F /* MusicPlayerControlConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A971FC1F06369800ACCA8F /* MusicPlayerControlConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +124,14 @@
 		B9A8956C1F04C54B008C5833 /* SongListCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListCellItem.swift; sourceTree = "<group>"; };
 		B9A8956E1F04C986008C5833 /* SongListViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListViewItem.swift; sourceTree = "<group>"; };
 		B9A895701F04C9B5008C5833 /* SongListHeaderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListHeaderItem.swift; sourceTree = "<group>"; };
+		B9A971ED1F05F18E00ACCA8F /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
+		B9A971EF1F05F2DD00ACCA8F /* MusicPlayerTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTrackView.swift; sourceTree = "<group>"; };
+		B9A971F11F05F2F700ACCA8F /* MusicPlayerControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerControl.swift; sourceTree = "<group>"; };
+		B9A971F31F05F56200ACCA8F /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		B9A971F51F05F70700ACCA8F /* playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = playground.playground; sourceTree = "<group>"; };
+		B9A971F81F061BB400ACCA8F /* MusicPlayerTrackViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTrackViewItem.swift; sourceTree = "<group>"; };
+		B9A971FA1F061D8F00ACCA8F /* MusicPlayerViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewItem.swift; sourceTree = "<group>"; };
+		B9A971FC1F06369800ACCA8F /* MusicPlayerControlConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerControlConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +176,7 @@
 		B913CE811F00A4AF00916D40 = {
 			isa = PBXGroup;
 			children = (
+				B9A971F51F05F70700ACCA8F /* playground.playground */,
 				B913CE8C1F00A4AF00916D40 /* Duyog */,
 				B913CEA11F00A4AF00916D40 /* DuyogTests */,
 				B913CEAC1F00A4AF00916D40 /* DuyogUITests */,
@@ -253,6 +269,7 @@
 			children = (
 				B91232041F036F2E0021A078 /* Home */,
 				B95C9E3E1F01F76200A5D6CB /* Initial */,
+				B9A971EC1F05F17C00ACCA8F /* MusicPlayer */,
 				B96CA5351F00F00E007422A7 /* PasswordReset */,
 				B96CA5151F00AADD007422A7 /* SignIn */,
 				B96CA5321F00EB22007422A7 /* SignUp */,
@@ -272,10 +289,11 @@
 		B96CA5181F00AF36007422A7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B992BC081F04A46300F063C4 /* ReusableProtocol.swift */,
-				B96CA5191F00AF4E007422A7 /* UITheme.swift */,
 				B96CA51B1F00B5B7007422A7 /* GradientView.swift */,
 				B95C9E491F021DF800A5D6CB /* KeyboardObserverProtocol.swift */,
+				B992BC081F04A46300F063C4 /* ReusableProtocol.swift */,
+				B96CA5191F00AF4E007422A7 /* UITheme.swift */,
+				B9A971F31F05F56200ACCA8F /* UIViewExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -324,6 +342,19 @@
 				B9A8956E1F04C986008C5833 /* SongListViewItem.swift */,
 			);
 			path = SongList;
+			sourceTree = "<group>";
+		};
+		B9A971EC1F05F17C00ACCA8F /* MusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				B9A971F11F05F2F700ACCA8F /* MusicPlayerControl.swift */,
+				B9A971FC1F06369800ACCA8F /* MusicPlayerControlConfig.swift */,
+				B9A971EF1F05F2DD00ACCA8F /* MusicPlayerTrackView.swift */,
+				B9A971F81F061BB400ACCA8F /* MusicPlayerTrackViewItem.swift */,
+				B9A971ED1F05F18E00ACCA8F /* MusicPlayerViewController.swift */,
+				B9A971FA1F061D8F00ACCA8F /* MusicPlayerViewItem.swift */,
+			);
+			path = MusicPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,19 +507,25 @@
 				B9A8956B1F04C190008C5833 /* SongListCell.swift in Sources */,
 				B95C9E4A1F021DF800A5D6CB /* KeyboardObserverProtocol.swift in Sources */,
 				B992BC051F0498AB00F063C4 /* HomeCell.swift in Sources */,
+				B9A971EE1F05F18E00ACCA8F /* MusicPlayerViewController.swift in Sources */,
 				B95C9E4C1F022DC100A5D6CB /* InitialKeyboardObserverHandler.swift in Sources */,
 				B96CA51A1F00AF4E007422A7 /* UITheme.swift in Sources */,
+				B9A971F91F061BB400ACCA8F /* MusicPlayerTrackViewItem.swift in Sources */,
 				B95C9E481F020B7600A5D6CB /* InitialAnimator.swift in Sources */,
 				B992BBFD1F048C4D00F063C4 /* HomeContentCell.swift in Sources */,
 				B9A8956D1F04C54B008C5833 /* SongListCellItem.swift in Sources */,
 				B9A8956F1F04C986008C5833 /* SongListViewItem.swift in Sources */,
 				B95C9E401F01F76A00A5D6CB /* InitialViewController.swift in Sources */,
 				B9A895691F04BF71008C5833 /* SongListViewController.swift in Sources */,
+				B9A971F41F05F56200ACCA8F /* UIViewExtension.swift in Sources */,
+				B9A971FD1F06369800ACCA8F /* MusicPlayerControlConfig.swift in Sources */,
 				B91232061F036F3D0021A078 /* HomeViewController.swift in Sources */,
 				B992BC091F04A46300F063C4 /* ReusableProtocol.swift in Sources */,
+				B9A971F21F05F2F700ACCA8F /* MusicPlayerControl.swift in Sources */,
 				B96CA5371F00F01A007422A7 /* PasswordResetViewController.swift in Sources */,
 				B95C9E441F02003E00A5D6CB /* SignUpInputView.swift in Sources */,
 				B9A895681F04BF71008C5833 /* SongListHeader.swift in Sources */,
+				B9A971F01F05F2DD00ACCA8F /* MusicPlayerTrackView.swift in Sources */,
 				B9A895711F04C9B5008C5833 /* SongListHeaderItem.swift in Sources */,
 				B95C9E421F01F9DC00A5D6CB /* SignInInputView.swift in Sources */,
 				B96CA5171F00AAF5007422A7 /* SignInViewController.swift in Sources */,
@@ -496,6 +533,7 @@
 				B96CA51C1F00B5B7007422A7 /* GradientView.swift in Sources */,
 				B96CA5111F00AA65007422A7 /* AppDelegate.swift in Sources */,
 				B992BC031F0492BB00F063C4 /* HomeContentCellItem.swift in Sources */,
+				B9A971FB1F061D8F00ACCA8F /* MusicPlayerViewItem.swift in Sources */,
 				B992BBFB1F048BAD00F063C4 /* HomeContentViewController.swift in Sources */,
 				B992BC011F04922E00F063C4 /* HomeContentViewItem.swift in Sources */,
 				B96CA5341F00EB38007422A7 /* SignUpViewController.swift in Sources */,
