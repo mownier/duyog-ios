@@ -11,6 +11,8 @@ import UIKit
 protocol MusicPlayerViewItem {
 
     var trackItem: MusicPlayerTrackViewItem { get }
+    var songTitleText: String { get }
+    var artistText: String { get }
 }
 
 protocol MusicPlayerViewConfig {
@@ -22,14 +24,20 @@ extension MusicPlayerViewController: MusicPlayerViewConfig {
     
     func configure(_ item: MusicPlayerViewItem) {
         trackView.configure(item.trackItem)
+        songTitleLabel.text = item.songTitleText
+        artistLabel.text = item.artistText
     }
 }
 
 struct MusicPlayerViewDisplayItem: MusicPlayerViewItem {
     
     var trackItem: MusicPlayerTrackViewItem
+    var songTitleText: String
+    var artistText: String
     
     init() {
         trackItem = MusicPlayerTrackViewDisplayItem()
+        songTitleText = "A Head Full Of Dreams"
+        artistText = "Coldplay"
     }
 }
