@@ -12,10 +12,11 @@ class MusicPlayerViewController: UIViewController {
 
     var navigationTitleLabel: UILabel!
     var songTitleLabel: UILabel!
-    var songArtistLabel: UILabel!
+    var artistLabel: UILabel!
     var collectionView: UICollectionView!
     var trackView: MusicPlayerTrackView!
     var control: MusicPlayerControl!
+    var photoPageController: PhotoPageController!
     
     var item: MusicPlayerViewItem = MusicPlayerViewDisplayItem() {
         didSet {
@@ -44,8 +45,29 @@ class MusicPlayerViewController: UIViewController {
         control = MusicPlayerControl()
         control.delegate = self
         
+        photoPageController = PhotoPageController()
+        photoPageController.sources = [ .image(nil), .image(nil), .image(nil) ]
+        
+        songTitleLabel = UILabel()
+        songTitleLabel.textColor = .white
+        songTitleLabel.textAlignment = .center
+        songTitleLabel.numberOfLines = 3
+        songTitleLabel.font = theme.font.medium(17)
+        
+        artistLabel = UILabel()
+        artistLabel.textColor = theme.color.gray
+        artistLabel.textAlignment = .center
+        artistLabel.numberOfLines = 3
+        artistLabel.font = theme.font.regular(13)
+        
         view.addSubview(trackView)
         view.addSubview(control)
+        view.addSubview(songTitleLabel)
+        view.addSubview(artistLabel)
+        view.addSubview(photoPageController.view)
+        
+        addChildViewController(photoPageController)
+        photoPageController.didMove(toParentViewController: self)
     }
 
     override func viewDidLoad() {
@@ -75,6 +97,30 @@ class MusicPlayerViewController: UIViewController {
         rect.size.height = 36
         rect.origin.y = control.frame.origin.y - rect.height
         trackView.frame = rect
+        
+        rect.size.width = view.frame.width
+        rect.size.height = rect.width - 60
+        rect.origin.x = 0
+        rect.origin.y = 64
+        photoPageController.view.frame = rect
+        
+        let height = trackView.frame.origin.y - photoPageController.view.frame.maxY
+        
+        rect.origin.x = control.frame.origin.x
+        rect.size.width = control.frame.width
+        
+        let songTitleHeight = songTitleLabel.sizeThatFits(rect.size).height
+        let artistHeight = artistLabel.sizeThatFits(rect.size).height
+        let songTitleBottomMargin: CGFloat = 4
+        let totalHeight = songTitleHeight + songTitleBottomMargin + artistHeight
+        
+        rect.origin.y = (height - totalHeight) / 2 + photoPageController.view.frame.maxY
+        rect.size.height = songTitleHeight
+        songTitleLabel.frame = rect
+        
+        rect.origin.y = rect.maxY + songTitleBottomMargin
+        rect.size.height = artistHeight
+        artistLabel.frame = rect
         
         control.configure(controlState)
     }
