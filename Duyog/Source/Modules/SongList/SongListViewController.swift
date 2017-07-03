@@ -123,7 +123,23 @@ class SongListViewController: UIViewController {
     }
     
     func didTapPlayButton() {
+        guard item.cellItems.count > 0 else { return }
+        
         let player = MusicPlayerViewController()
+        var musicItems = [MusicPlayerViewDisplayItem]()
+        var musicItem = MusicPlayerViewDisplayItem()
+        musicItem.artistText = item.headerItem.titleText
+        
+        for cellItem in item.cellItems {
+            var trackItem = MusicPlayerTrackViewDisplayItem()
+            trackItem.durationText = "\(arc4random() % 10):\(arc4random() % 6)\(arc4random() % 10)"
+            musicItem.songTitleText = cellItem.titleText
+            musicItem.trackItem = trackItem
+            musicItems.append(musicItem)
+        }
+        
+        
+        player.items = musicItems
         player.present(from: self)
     }
 }
