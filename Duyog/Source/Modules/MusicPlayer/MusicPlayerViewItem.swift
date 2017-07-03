@@ -13,6 +13,7 @@ protocol MusicPlayerViewItem {
     var trackItem: MusicPlayerTrackViewItem { get }
     var songTitleText: String { get }
     var artistText: String { get }
+    var photoURLPath: String { get }
 }
 
 protocol MusicPlayerViewConfig {
@@ -34,10 +35,12 @@ struct MusicPlayerViewDisplayItem: MusicPlayerViewItem {
     var trackItem: MusicPlayerTrackViewItem
     var songTitleText: String
     var artistText: String
+    var photoURLPath: String
     
     init() {
         trackItem = MusicPlayerTrackViewDisplayItem()
-        songTitleText = "A Head Full Of Dreams"
-        artistText = "Coldplay"
+        songTitleText = ""
+        artistText = ""
+        photoURLPath = ""
     }
 }
