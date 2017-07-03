@@ -18,11 +18,11 @@ class MusicPlayerViewController: UIViewController {
     var control: MusicPlayerControl!
     var photoPageController: PhotoPageController!
     
-    var item: MusicPlayerViewItem = MusicPlayerViewDisplayItem() {
+    var items: [MusicPlayerViewItem] = [] {
         didSet {
-            guard isViewLoaded else { return }
+            guard isViewLoaded, items.count > 0 else { return }
             
-            configure(item)
+            configure(items[0])
         }
     }
     
@@ -31,6 +31,25 @@ class MusicPlayerViewController: UIViewController {
             guard isViewLoaded else { return }
             
             control.configure(controlState)
+        }
+    }
+    
+    var currentItemIndex: Int = -1 {
+        didSet {
+            guard currentItemIndex != oldValue, currentItemIndex >= 0, currentItemIndex < items.count else { return }
+            
+            let item = items[currentItemIndex]
+            configure(item)
+            controlState = .pause
+            trackView.configure(item.trackItem)
+            photoPageController.collectionView.scrollToItem(at: IndexPath(item: currentItemIndex, section: 0), at: .centeredHorizontally, animated: true)
+        }
+    }
+    
+    var isRepeated: Bool = false {
+        didSet {
+            var theme = UITheme()
+            control.repeatButton.tintColor = isRepeated ? theme.color.pink : theme.color.gray
         }
     }
     
@@ -46,7 +65,8 @@ class MusicPlayerViewController: UIViewController {
         control.delegate = self
         
         photoPageController = PhotoPageController()
-        photoPageController.sources = [ .image(nil), .image(nil), .image(nil) ]
+        photoPageController.dataSource = self
+        photoPageController.delegate = self
         
         songTitleLabel = UILabel()
         songTitleLabel.textColor = .white
@@ -75,9 +95,7 @@ class MusicPlayerViewController: UIViewController {
         
         setupNavigationItem()
         
-        configure(item)
-        
-        perform(#selector(self.performTrackViewSample), with: nil, afterDelay: 3)
+        if items.count > 0 { currentItemIndex = 0 }
     }
 
     override func viewDidLayoutSubviews() {
@@ -99,9 +117,9 @@ class MusicPlayerViewController: UIViewController {
         trackView.frame = rect
         
         rect.size.width = view.frame.width
-        rect.size.height = rect.width - 60
+        rect.size.height = rect.width * 0.6
         rect.origin.x = 0
-        rect.origin.y = 64
+        rect.origin.y = 108
         photoPageController.view.frame = rect
         
         let height = trackView.frame.origin.y - photoPageController.view.frame.maxY
@@ -123,21 +141,6 @@ class MusicPlayerViewController: UIViewController {
         artistLabel.frame = rect
         
         control.configure(controlState)
-    }
-    
-    var timer: Timer!
-    
-    func performTrackViewSample() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            guard self.trackView.slider.value < 1 else {
-                timer.invalidate()
-                return
-            }
-            
-            let newValue = self.trackView.slider.value + 0.01
-            self.trackView.configure(elapsedText: "0:00", progress: newValue)
-        }
-        timer.fire()
     }
     
     func setupNavigationItem() {
@@ -186,22 +189,66 @@ extension MusicPlayerViewController: MusicPlayerControlDelegate {
         
     }
     
-    func musicPlayerControlWillShuffle() {
-        
+    func musicPlayerControlWillRepeat() {
+        isRepeated = !isRepeated
     }
     
     func musicPlayerControlWillPlayNext() {
+        guard items.count > 0 else { return }
         
-    }
-    
-    func musicPlayerControlWillPlayCurrent() {
-        switch controlState {
-        case .play: controlState = .pause
-        case .pause: controlState = .play
+        let nextIndex = currentItemIndex + 1
+        if nextIndex < items.count {
+            currentItemIndex = nextIndex
+        
+        } else if isRepeated {
+            currentItemIndex = 0
         }
     }
     
     func musicPlayerControlWillPlayPrevious() {
+        guard items.count > 0 else { return }
         
+        let prevIndex = currentItemIndex - 1
+        if prevIndex >= 0 {
+            currentItemIndex = prevIndex
+        
+        } else if isRepeated {
+            currentItemIndex = 0
+        }
+    }
+    
+    func musicPlayerControlWillPlayCurrent() {
+        switch controlState {
+        case .play:
+            controlState = .pause
+            
+        case .pause:
+            controlState = .play
+        }
+    }
+}
+
+extension MusicPlayerViewController: PhotoPageControllerDataSource {
+    
+    func photoPageControllerPhotoCount(_ controller: PhotoPageController) -> Int {
+        return items.count
+    }
+    
+    func photoPageController(_ controller: PhotoPageController, assetFor index: Int) -> PhotoPageAsset {
+        return .remote(items[0].photoURLPath)
+    }
+}
+
+extension MusicPlayerViewController: PhotoPageControllerDelegate {
+    
+    func photoPageController(_ controller: PhotoPageController, configure imageView: UIImageView) {
+        var theme = UITheme()
+        imageView.backgroundColor = theme.color.gray
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 3
+    }
+    
+    func photoPageController(_ controller: PhotoPageController, didChoose index: Int) {
+        currentItemIndex = index
     }
 }
