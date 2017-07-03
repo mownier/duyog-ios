@@ -10,7 +10,7 @@ import UIKit
 
 protocol MusicPlayerControlDelegate: class {
     
-    func musicPlayerControlWillShuffle()
+    func musicPlayerControlWillRepeat()
     func musicPlayerControlWillPlayPrevious()
     func musicPlayerControlWillPlayNext()
     func musicPlayerControlWillPlayCurrent()
@@ -19,7 +19,7 @@ protocol MusicPlayerControlDelegate: class {
 
 class MusicPlayerControl: UIView {
 
-    var shuffleButton: UIButton!
+    var repeatButton: UIButton!
     var previousButton: UIButton!
     var nextButton: UIButton!
     var playButton: UIButton!
@@ -35,7 +35,7 @@ class MusicPlayerControl: UIView {
     override func layoutSubviews() {
         var rect = CGRect.zero
         
-        shuffleButton.sizeToFit()
+        repeatButton.sizeToFit()
         previousButton.sizeToFit()
         nextButton.sizeToFit()
         soundsButton.sizeToFit()
@@ -43,18 +43,18 @@ class MusicPlayerControl: UIView {
         
         let inset: CGFloat = 8
         let playButtonLeftMargin: CGFloat = 16
-        let shuffleButtonWidth = shuffleButton.bounds.width + inset * 2
+        let repeatButtonWidth = repeatButton.bounds.width + inset * 2
         let previousButtonWidth = previousButton.bounds.width + inset * 2
         let nextButtonWidth = nextButton.bounds.width + inset * 2
         let soundsButtonWidth = soundsButton.bounds.width + inset * 2
         let playButtonWidth = playButton.bounds.width + inset * 2
         let playButtonHeight = playButton.bounds.height + inset * 2
         
-        rect.size.width = shuffleButtonWidth
+        rect.size.width = repeatButtonWidth
         rect.size.height = rect.width
         rect.origin.y = (frame.height - rect.height) / 2
         rect.origin.x = 0
-        shuffleButton.frame = rect
+        repeatButton.frame = rect
         
         rect.size.width = soundsButtonWidth
         rect.size.height = rect.width
@@ -86,11 +86,11 @@ class MusicPlayerControl: UIView {
         
         var theme = UITheme()
         
-        shuffleButton = UIButton()
-        shuffleButton.tintColor = theme.color.gray
-        shuffleButton.setImage(#imageLiteral(resourceName: "icon_shuffle"), for: .normal)
-        shuffleButton.setImage(#imageLiteral(resourceName: "icon_shuffle"), for: .highlighted)
-        shuffleButton.addTarget(self, action: #selector(self.didTapShuffleButton), for: .touchUpInside)
+        repeatButton = UIButton()
+        repeatButton.tintColor = theme.color.gray
+        repeatButton.setImage(#imageLiteral(resourceName: "icon_shuffle"), for: .normal)
+        repeatButton.setImage(#imageLiteral(resourceName: "icon_shuffle"), for: .highlighted)
+        repeatButton.addTarget(self, action: #selector(self.didTapShuffleButton), for: .touchUpInside)
         
         previousButton = UIButton()
         previousButton.tintColor = .white
@@ -116,7 +116,7 @@ class MusicPlayerControl: UIView {
         playButton.gradientLayer.gradient = GradientPoint.bottomRightTopLeft.draw()
         playButton.addTarget(self, action: #selector(self.didTapPlayButton), for: .touchUpInside)
         
-        addSubview(shuffleButton)
+        addSubview(repeatButton)
         addSubview(previousButton)
         addSubview(nextButton)
         addSubview(soundsButton)
@@ -128,7 +128,7 @@ class MusicPlayerControl: UIView {
     }
     
     func didTapShuffleButton() {
-        delegate?.musicPlayerControlWillShuffle()
+        delegate?.musicPlayerControlWillRepeat()
     }
     
     func didTapNextButton() {
