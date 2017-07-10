@@ -8,6 +8,25 @@
 
 import UIKit
 
-class MusicPlayerAssembly: AnyObject {
+class MusicPlayerAssembly: MusicPlayerModuleInputProtocol {
+    
+    static func create(_ songs: [MusicPlayerSongProtocol], output: MusicPlayerModuleOutputProtocol? = nil) -> UIViewController {
+        let presenter = MusicPlayerPresenter()
+        let router = MusicPlayerRouter()
+        let interactor = MusicPlayerInteractor()
+        let view = MusicPlayerViewController()
 
+        presenter.view = view
+        presenter.interactor = interactor
+        presenter.router = router
+        presenter.output = output
+        presenter.songs = songs
+
+        view.output = presenter
+        interactor.output = presenter
+        
+        router.viewController = view
+        
+        return view
+    }
 }

@@ -53,6 +53,15 @@ class MusicPlayerViewController: UIViewController {
         }
     }
     
+    var isShuffled: Bool = false {
+        didSet {
+            var theme = UITheme()
+            control.shuffleButton.tintColor = isShuffled ? theme.color.pink : theme.color.gray
+        }
+    }
+    
+    var output: MusicPlayerViewOutputProtocol!
+    
     override func loadView() {
         super.loadView()
         
@@ -108,8 +117,8 @@ class MusicPlayerViewController: UIViewController {
         
         rect.origin.x = 20
         rect.size.width = view.frame.width - rect.origin.x * 2
-        rect.size.height = 80
-        rect.origin.y = view.frame.height - rect.height - 32
+        rect.size.height = 120
+        rect.origin.y = view.frame.height - rect.height - 16
         control.frame = rect
         
         rect.size.height = 36
@@ -185,8 +194,8 @@ class MusicPlayerViewController: UIViewController {
 
 extension MusicPlayerViewController: MusicPlayerControlDelegate {
     
-    func musicPlayerControlWillConfigureSounds() {
-        
+    func musicPlayerControlWillShuffle() {
+        isShuffled = !isShuffled
     }
     
     func musicPlayerControlWillRepeat() {
@@ -196,25 +205,41 @@ extension MusicPlayerViewController: MusicPlayerControlDelegate {
     func musicPlayerControlWillPlayNext() {
         guard items.count > 0 else { return }
         
-        let nextIndex = currentItemIndex + 1
-        if nextIndex < items.count {
-            currentItemIndex = nextIndex
+        let nextIndex: Int
         
-        } else if isRepeated {
-            currentItemIndex = 0
+        if isShuffled {
+            nextIndex = Int(arc4random()) % items.count
+        
+        } else if !isRepeated {
+            nextIndex = currentItemIndex + 1
+        
+        } else {
+            nextIndex = 0
         }
+ 
+        guard nextIndex < items.count else { return }
+        
+        currentItemIndex = nextIndex
     }
     
     func musicPlayerControlWillPlayPrevious() {
         guard items.count > 0 else { return }
         
-        let prevIndex = currentItemIndex - 1
-        if prevIndex >= 0 {
-            currentItemIndex = prevIndex
+        let prevIndex: Int
         
-        } else if isRepeated {
-            currentItemIndex = 0
+        if isShuffled {
+            prevIndex = Int(arc4random()) % items.count
+        
+        } else if !isRepeated {
+            prevIndex = currentItemIndex - 1
+            
+        } else {
+            prevIndex = 0
         }
+        
+        guard prevIndex >= 0 else { return }
+        
+        currentItemIndex = prevIndex
     }
     
     func musicPlayerControlWillPlayCurrent() {
@@ -250,5 +275,28 @@ extension MusicPlayerViewController: PhotoPageControllerDelegate {
     
     func photoPageController(_ controller: PhotoPageController, didChoose index: Int) {
         currentItemIndex = index
+    }
+}
+
+extension MusicPlayerViewController: MusicPlayerViewInputProtocol {
+
+    func onPause() {
+        
+    }
+    
+    func onPlayPrevious() {
+        
+    }
+    
+    func onPlayNext() {
+        
+    }
+    
+    func onPlay() {
+        
+    }
+    
+    func onPlayProgress(_ progress: Float, text: String) {
+        trackView.configure(elapsedText: text, progress: progress)
     }
 }

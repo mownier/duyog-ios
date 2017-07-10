@@ -8,6 +8,7 @@
 
 import UIKit
 
-class MusicPlayerRouter: AnyObject {
+class MusicPlayerRouter: MusicPlayerRouterInputProtocol {
 
+    weak var viewController: UIViewController!
 }

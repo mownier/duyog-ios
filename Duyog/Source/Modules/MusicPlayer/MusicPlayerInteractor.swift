@@ -6,8 +6,11 @@
 //  Copyright © 2017 Ner. All rights reserved.
 //
 
-import UIKit
+class MusicPlayerInteractor: MusicPlayerInteractorInputProtocol {
 
-class MusicPlayerInteractor: AnyObject {
-
+    weak var output: MusicPlayerInteractorOutputProtocol?
+    
+    func playSongWithRemoteURLPath(_ path: String) {
+        output?.onPlayProgress(0.1)
+    }
 }
