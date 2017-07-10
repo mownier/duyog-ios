@@ -8,32 +8,6 @@
 
 import UIKit
 
-enum FlowModule {
-    
-    case songList
-    case musicPlayer
-}
-
-enum FlowState {
-    
-    case present(UIViewController, Bool)
-    case push(UIViewController, Bool)
-    case root
-    
-    struct Info {
-        
-        var module: FlowModule
-        var state: FlowState
-        var viewController: UIViewController
-        
-        init(module: FlowModule, state: FlowState, viewController: UIViewController) {
-            self.module = module
-            self.state = state
-            self.viewController = viewController
-        }
-    }
-}
-
 protocol FlowControllable: class {
     
     var flowController: FlowControllerProtocol! { set get }
@@ -41,6 +15,7 @@ protocol FlowControllable: class {
 
 protocol FlowControllerProtocol {
     
+    func enter(_ state: FlowState, module: FlowModule, viewController: UIViewController)
     func exit(_ animated: Bool)
 }
 
@@ -54,21 +29,39 @@ class FlowController: FlowControllerProtocol {
         self.stateInfo = []
     }
     
-    func processState(_ state: FlowState, child: UIViewController) {
-        if let controllable = child as? FlowControllable {
+    func enter(_ state: FlowState, module: FlowModule, viewController: UIViewController) {
+        if let controllable = viewController as? FlowControllable {
             controllable.flowController = self
         }
         
         switch state {
-        case .present(let parent, let animated):
-            parent.present(child, animated: animated, completion: nil)
+        case .present(let parent, let animated, let nav):
+            let presented: UIViewController
+            if nav != nil {
+                nav!.pushViewController(viewController, animated: false)
+                presented = nav!
+                
+            } else {
+                presented = viewController
+            }
+            parent.present(presented, animated: animated, completion: nil)
             
         case .push(let parent, let animated):
-            parent.navigationController?.pushViewController(child, animated: animated)
+            parent.navigationController?.pushViewController(viewController, animated: animated)
             
-        case .root:
-            window.rootViewController = child
+        case .root(let nav):
+            let root: UIViewController
+            if nav != nil {
+                nav!.pushViewController(viewController, animated: false)
+                root = nav!
+            
+            } else {
+                root = viewController
+            }
+            window.rootViewController = root
         }
+        
+        stateInfo.append(FlowState.Info(module, state, viewController))
     }
     
     func exit(_ animated: Bool) {
