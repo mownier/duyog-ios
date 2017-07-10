@@ -6,8 +6,10 @@
 //  Copyright © 2017 Ner. All rights reserved.
 //
 
-import UIKit
-
-class SongListViewControllerGenerator: AnyObject {
-
+class SongListViewControllerGenerator: SongListViewControllerGeneratorProtocol {
+    
+    func generate() -> SongListViewControllerProtocol & SongListPresenterOutputProtocol {
+        return SongListViewController()
+    }
 }
+

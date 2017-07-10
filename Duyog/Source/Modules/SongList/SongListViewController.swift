@@ -8,8 +8,12 @@
 
 import UIKit
 
-class SongListViewController: UIViewController {
+class SongListViewController: UIViewController, SongListViewControllerProtocol, FlowControllable {
 
+    var flowController: FlowControllerProtocol!
+    var interactor: SongListInteractorInputProtocol!
+    weak var moduleOutput: SongListModuleOutputProtocol?
+    
     var navigationTitleLabel: UILabel?
     
     var header: SongListHeader!
@@ -164,5 +168,17 @@ extension SongListViewController: UITableViewDelegate {
         let cellItem = item.cellItems[indexPath.row]
         prototype.configure(cellItem)
         return prototype.dynamicHeight + 12
+    }
+}
+
+
+extension SongListViewController: SongListPresenterOutputProtocol {
+    
+    func displaySongs(_ type: PresenterSongListType) {
+        
+    }
+    
+    func playSongs(_ songs: Song.Collection) {
+
     }
 }
