@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         flowController = FlowController(window: window!)
-        showInitialAsRoot(flowController)
+        showHomeAsRoot(flowController)
         return true
     }
 }
@@ -33,6 +33,11 @@ func showInitialAsRoot(_ flowController: FlowControllerProtocol) {
     let nav = navigationController
     nav.isNavigationBarHidden = true
     flowController.showInitial(.root(nav))
+}
+
+func showHomeAsRoot(_ flowController: FlowControllerProtocol) {
+    let nav = navigationController
+    flowController.showHome(.root(nav))
 }
 
 var navigationController: UINavigationController {
