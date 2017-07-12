@@ -67,6 +67,11 @@
 		B974C0F31F15EAFE00B1A993 /* InitialProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0F21F15EAFE00B1A993 /* InitialProtocols.swift */; };
 		B974C0F61F15ED6700B1A993 /* InitialAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0F51F15ED6700B1A993 /* InitialAssembly.swift */; };
 		B974C0F81F15F20000B1A993 /* InitialInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0F71F15F20000B1A993 /* InitialInteractor.swift */; };
+		B974C0FB1F15F93F00B1A993 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0FA1F15F93F00B1A993 /* HomeProtocols.swift */; };
+		B974C0FE1F15FA7400B1A993 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0FD1F15FA7400B1A993 /* HomeInteractor.swift */; };
+		B974C1001F15FAAB00B1A993 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0FF1F15FAAB00B1A993 /* HomePresenter.swift */; };
+		B974C1021F15FAE700B1A993 /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C1011F15FAE700B1A993 /* HomeAssembly.swift */; };
+		B974C1041F15FBC100B1A993 /* HomeViewControllerGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C1031F15FBC100B1A993 /* HomeViewControllerGenerator.swift */; };
 		B992BBFB1F048BAD00F063C4 /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BBFA1F048BAD00F063C4 /* HomeContentViewController.swift */; };
 		B992BBFD1F048C4D00F063C4 /* HomeContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BBFC1F048C4D00F063C4 /* HomeContentCell.swift */; };
 		B992BC011F04922E00F063C4 /* HomeContentViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BC001F04922E00F063C4 /* HomeContentViewItem.swift */; };
@@ -184,6 +189,11 @@
 		B974C0F21F15EAFE00B1A993 /* InitialProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialProtocols.swift; sourceTree = "<group>"; };
 		B974C0F51F15ED6700B1A993 /* InitialAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialAssembly.swift; sourceTree = "<group>"; };
 		B974C0F71F15F20000B1A993 /* InitialInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialInteractor.swift; sourceTree = "<group>"; };
+		B974C0FA1F15F93F00B1A993 /* HomeProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		B974C0FD1F15FA7400B1A993 /* HomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		B974C0FF1F15FAAB00B1A993 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		B974C1011F15FAE700B1A993 /* HomeAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
+		B974C1031F15FBC100B1A993 /* HomeViewControllerGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerGenerator.swift; sourceTree = "<group>"; };
 		B992BBFA1F048BAD00F063C4 /* HomeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
 		B992BBFC1F048C4D00F063C4 /* HomeContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentCell.swift; sourceTree = "<group>"; };
 		B992BC001F04922E00F063C4 /* HomeContentViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewItem.swift; sourceTree = "<group>"; };
@@ -268,13 +278,8 @@
 		B91232041F036F2E0021A078 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B992BC041F0498AB00F063C4 /* HomeCell.swift */,
-				B992BBFC1F048C4D00F063C4 /* HomeContentCell.swift */,
-				B992BC021F0492BB00F063C4 /* HomeContentCellItem.swift */,
-				B992BBFA1F048BAD00F063C4 /* HomeContentViewController.swift */,
-				B992BC001F04922E00F063C4 /* HomeContentViewItem.swift */,
-				B91232071F038DAA0021A078 /* HomeHeader.swift */,
-				B91232051F036F3D0021A078 /* HomeViewController.swift */,
+				B974C0FC1F15F94200B1A993 /* Core */,
+				B974C0F91F15F93200B1A993 /* Screen */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -532,6 +537,32 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
+		B974C0F91F15F93200B1A993 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B992BC041F0498AB00F063C4 /* HomeCell.swift */,
+				B992BBFC1F048C4D00F063C4 /* HomeContentCell.swift */,
+				B992BC021F0492BB00F063C4 /* HomeContentCellItem.swift */,
+				B992BBFA1F048BAD00F063C4 /* HomeContentViewController.swift */,
+				B992BC001F04922E00F063C4 /* HomeContentViewItem.swift */,
+				B91232071F038DAA0021A078 /* HomeHeader.swift */,
+				B91232051F036F3D0021A078 /* HomeViewController.swift */,
+				B974C1031F15FBC100B1A993 /* HomeViewControllerGenerator.swift */,
+			);
+			name = Screen;
+			sourceTree = "<group>";
+		};
+		B974C0FC1F15F94200B1A993 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B974C1011F15FAE700B1A993 /* HomeAssembly.swift */,
+				B974C0FD1F15FA7400B1A993 /* HomeInteractor.swift */,
+				B974C0FF1F15FAAB00B1A993 /* HomePresenter.swift */,
+				B974C0FA1F15F93F00B1A993 /* HomeProtocols.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		B9A895651F04BF71008C5833 /* SongList */ = {
 			isa = PBXGroup;
 			children = (
@@ -762,6 +793,7 @@
 				B9E2BAEE1F133296004701AC /* FlowModule.swift in Sources */,
 				B974C0E21F15E34B00B1A993 /* SignUpAssembly.swift in Sources */,
 				B9E2BAE31F132FB0004701AC /* SongListInteractor.swift in Sources */,
+				B974C0FB1F15F93F00B1A993 /* HomeProtocols.swift in Sources */,
 				B95C9E4A1F021DF800A5D6CB /* KeyboardObserverProtocol.swift in Sources */,
 				B992BC051F0498AB00F063C4 /* HomeCell.swift in Sources */,
 				B92ADBB01F0CAB59000799B1 /* MusicPlayerPresenter.swift in Sources */,
@@ -779,6 +811,7 @@
 				B9A8956D1F04C54B008C5833 /* SongListCellItem.swift in Sources */,
 				B9A8956F1F04C986008C5833 /* SongListViewItem.swift in Sources */,
 				B9E2BAE71F133070004701AC /* SongListViewControllerGenerator.swift in Sources */,
+				B974C1021F15FAE700B1A993 /* HomeAssembly.swift in Sources */,
 				B95C9E401F01F76A00A5D6CB /* InitialViewController.swift in Sources */,
 				B974C0D11F15E04200B1A993 /* SignInPresenter.swift in Sources */,
 				B9A895691F04BF71008C5833 /* SongListViewController.swift in Sources */,
@@ -790,6 +823,8 @@
 				B9E2BAEC1F133287004701AC /* FlowController.swift in Sources */,
 				B974C0EC1F15E50A00B1A993 /* PasswordResetPresenter.swift in Sources */,
 				B974C0F61F15ED6700B1A993 /* InitialAssembly.swift in Sources */,
+				B974C1041F15FBC100B1A993 /* HomeViewControllerGenerator.swift in Sources */,
+				B974C0FE1F15FA7400B1A993 /* HomeInteractor.swift in Sources */,
 				B9BBA5741F0B371D00504CFB /* MusicPlayerProtocols.swift in Sources */,
 				B974C0D91F15E29900B1A993 /* SignUpProtocols.swift in Sources */,
 				B992BC091F04A46300F063C4 /* ReusableProtocol.swift in Sources */,
@@ -828,6 +863,7 @@
 				B9E2BADC1F132EF1004701AC /* SongListProtocols.swift in Sources */,
 				B96CA5341F00EB38007422A7 /* SignUpViewController.swift in Sources */,
 				B91232081F038DAA0021A078 /* HomeHeader.swift in Sources */,
+				B974C1001F15FAAB00B1A993 /* HomePresenter.swift in Sources */,
 				B974C0CF1F15E00500B1A993 /* SignInInteractor.swift in Sources */,
 				B90B0C5D1F14705000462BDF /* PlaylistDisplay.swift in Sources */,
 				B92ADBB71F0CAF01000799B1 /* Album.swift in Sources */,
