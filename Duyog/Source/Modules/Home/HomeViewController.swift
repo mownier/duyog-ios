@@ -126,30 +126,55 @@ class HomeViewController: UIViewController, FlowControllable, HomeViewController
     }
     
     func didTapSearch() {
-        var item = SongListViewDisplayItem()
-        var headerItem = item.headerItem as! SongListHeaderDisplayItem
-        headerItem.descriptionText = "Coldpay is a British rock band formed in 1996 by lead vocalist and keyboardist Chris Martin"
-        headerItem.titleText = "Coldplay"
-        headerItem.subtitleText = "ALTERNATIVE ROCK"
-        item.headerItem = headerItem
+        let artist = Artist(
+            id: "artist1",
+            name: "Coldplay",
+            bio: "Coldpay is a British rock band formed in 1996 by lead vocalist and keyboardist Chris Martin",
+            genre: "ALTERNATIVE ROCK"
+        )
+        let album = Album(
+            id: "album1",
+            photoURL: "",
+            name: "A Head Full of Dreams",
+            year: 2015
+        )
+        var song = Song(
+            id: "song1",
+            title: "A Head Full of Dreams",
+            genre: artist.genre,
+            duration: 223,
+            streamURL: ""
+        )
+        var songData = Song.Data(
+            song: song,
+            artists: [artist],
+            albums: [album]
+        )
+        var songs = [songData]
         
-        var cellItem = SongListCellDisplayItem()
-        cellItem.titleText = "A Head Full of Dreams"
-        item.cellItems.append(cellItem)
-        cellItem.titleText = "A Whisper"
-        item.cellItems.append(cellItem)
-        cellItem.titleText = "Amsterdam"
-        item.cellItems.append(cellItem)
-        cellItem.titleText = "Always In My Head"
-        item.cellItems.append(cellItem)
-        cellItem.titleText = "Careful Where You Go"
-        item.cellItems.append(cellItem)
+        song.id = "song2"
+        song.title = "A Whisper"
+        songData.song = song
+        songs.append(songData)
         
-        let vc = SongListViewController()
-        vc.title = "ARTIST"
-        vc.item = item
+        song.id = "song3"
+        song.title = "Amsterdam"
+        songData.song = song
+        songs.append(songData)
         
-        navigationController?.pushViewController(vc, animated: true)
+        song.id = "song3"
+        song.title = "Always In My Head"
+        songData.song = song
+        songs.append(songData)
+        
+        song.id = "song3"
+        song.title = "Careful Where You Go"
+        songData.song = song
+        songs.append(songData)
+        
+        let artistData = Artist.Data(artist: artist, songs: songs)
+        
+        flowController.showSongList(.push(self, true), type: .artist(artistData))
     }
 
     func embedInNavigationController() -> UINavigationController {
