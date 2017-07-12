@@ -15,22 +15,17 @@ class SongListInteractor: SongListInteractorInputProtocol {
         self.type = type
     }
     
-    func fetchSongs() {
+    func load() {
         switch type {
-        case .album:
-            let newData = Album.Data(album: Album(id: ""), songs: [])
-            type = InteractorSongListType.album(newData)
-            
-        case .artist:
-            let newData = Artist.Data(artist: Artist(id: ""), songs: [])
-            type = InteractorSongListType.artist(newData)
-            
-        case .playlist:
-            let newData = Playlist.Data(playlist: Playlist(id: ""), songs: [])
-            type = InteractorSongListType.playlist(newData)
-
+        case .album: output.onLoad("album")
+        case .artist: output.onLoad("artist")
+        case .playlist: output.onLoad("playlist")
         }
         
+        fetchSongs()
+    }
+    
+    func fetchSongs() {
         output.didFetchSongs(type)
     }
     
