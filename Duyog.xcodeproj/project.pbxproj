@@ -48,6 +48,25 @@
 		B96CA5311F00D30F007422A7 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B96CA5271F00D30F007422A7 /* OpenSans-SemiboldItalic.ttf */; };
 		B96CA5341F00EB38007422A7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA5331F00EB38007422A7 /* SignUpViewController.swift */; };
 		B96CA5371F00F01A007422A7 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CA5361F00F01A007422A7 /* PasswordResetViewController.swift */; };
+		B974C0CB1F15DE2400B1A993 /* SignInProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0CA1F15DE2400B1A993 /* SignInProtocols.swift */; };
+		B974C0CD1F15DEBE00B1A993 /* SignInModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0CC1F15DEBE00B1A993 /* SignInModels.swift */; };
+		B974C0CF1F15E00500B1A993 /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0CE1F15E00500B1A993 /* SignInInteractor.swift */; };
+		B974C0D11F15E04200B1A993 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0D01F15E04200B1A993 /* SignInPresenter.swift */; };
+		B974C0D31F15E0C100B1A993 /* SignInAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0D21F15E0C100B1A993 /* SignInAssembly.swift */; };
+		B974C0D91F15E29900B1A993 /* SignUpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0D81F15E29900B1A993 /* SignUpProtocols.swift */; };
+		B974C0DC1F15E2CE00B1A993 /* SignUpModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0DB1F15E2CE00B1A993 /* SignUpModels.swift */; };
+		B974C0DE1F15E30F00B1A993 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0DD1F15E30F00B1A993 /* SignUpInteractor.swift */; };
+		B974C0E01F15E32D00B1A993 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0DF1F15E32D00B1A993 /* SignUpPresenter.swift */; };
+		B974C0E21F15E34B00B1A993 /* SignUpAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0E11F15E34B00B1A993 /* SignUpAssembly.swift */; };
+		B974C0E51F15E3B600B1A993 /* PasswordResetProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0E41F15E3B600B1A993 /* PasswordResetProtocols.swift */; };
+		B974C0E81F15E42600B1A993 /* PasswordResetModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0E71F15E42600B1A993 /* PasswordResetModels.swift */; };
+		B974C0EA1F15E48000B1A993 /* PasswordResetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0E91F15E48000B1A993 /* PasswordResetInteractor.swift */; };
+		B974C0EC1F15E50A00B1A993 /* PasswordResetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0EB1F15E50A00B1A993 /* PasswordResetPresenter.swift */; };
+		B974C0EE1F15E55700B1A993 /* PasswordResetAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0ED1F15E55700B1A993 /* PasswordResetAssembly.swift */; };
+		B974C0F01F15E94800B1A993 /* InitialViewControllerGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0EF1F15E94800B1A993 /* InitialViewControllerGenerator.swift */; };
+		B974C0F31F15EAFE00B1A993 /* InitialProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0F21F15EAFE00B1A993 /* InitialProtocols.swift */; };
+		B974C0F61F15ED6700B1A993 /* InitialAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0F51F15ED6700B1A993 /* InitialAssembly.swift */; };
+		B974C0F81F15F20000B1A993 /* InitialInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0F71F15F20000B1A993 /* InitialInteractor.swift */; };
 		B992BBFB1F048BAD00F063C4 /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BBFA1F048BAD00F063C4 /* HomeContentViewController.swift */; };
 		B992BBFD1F048C4D00F063C4 /* HomeContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BBFC1F048C4D00F063C4 /* HomeContentCell.swift */; };
 		B992BC011F04922E00F063C4 /* HomeContentViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BC001F04922E00F063C4 /* HomeContentViewItem.swift */; };
@@ -146,6 +165,25 @@
 		B96CA5271F00D30F007422A7 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		B96CA5331F00EB38007422A7 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B96CA5361F00F01A007422A7 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
+		B974C0CA1F15DE2400B1A993 /* SignInProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInProtocols.swift; sourceTree = "<group>"; };
+		B974C0CC1F15DEBE00B1A993 /* SignInModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInModels.swift; sourceTree = "<group>"; };
+		B974C0CE1F15E00500B1A993 /* SignInInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
+		B974C0D01F15E04200B1A993 /* SignInPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
+		B974C0D21F15E0C100B1A993 /* SignInAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInAssembly.swift; sourceTree = "<group>"; };
+		B974C0D81F15E29900B1A993 /* SignUpProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProtocols.swift; sourceTree = "<group>"; };
+		B974C0DB1F15E2CE00B1A993 /* SignUpModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpModels.swift; sourceTree = "<group>"; };
+		B974C0DD1F15E30F00B1A993 /* SignUpInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
+		B974C0DF1F15E32D00B1A993 /* SignUpPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		B974C0E11F15E34B00B1A993 /* SignUpAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpAssembly.swift; sourceTree = "<group>"; };
+		B974C0E41F15E3B600B1A993 /* PasswordResetProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetProtocols.swift; sourceTree = "<group>"; };
+		B974C0E71F15E42600B1A993 /* PasswordResetModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetModels.swift; sourceTree = "<group>"; };
+		B974C0E91F15E48000B1A993 /* PasswordResetInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetInteractor.swift; sourceTree = "<group>"; };
+		B974C0EB1F15E50A00B1A993 /* PasswordResetPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetPresenter.swift; sourceTree = "<group>"; };
+		B974C0ED1F15E55700B1A993 /* PasswordResetAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetAssembly.swift; sourceTree = "<group>"; };
+		B974C0EF1F15E94800B1A993 /* InitialViewControllerGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewControllerGenerator.swift; sourceTree = "<group>"; };
+		B974C0F21F15EAFE00B1A993 /* InitialProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialProtocols.swift; sourceTree = "<group>"; };
+		B974C0F51F15ED6700B1A993 /* InitialAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialAssembly.swift; sourceTree = "<group>"; };
+		B974C0F71F15F20000B1A993 /* InitialInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialInteractor.swift; sourceTree = "<group>"; };
 		B992BBFA1F048BAD00F063C4 /* HomeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
 		B992BBFC1F048C4D00F063C4 /* HomeContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentCell.swift; sourceTree = "<group>"; };
 		B992BC001F04922E00F063C4 /* HomeContentViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewItem.swift; sourceTree = "<group>"; };
@@ -302,12 +340,8 @@
 		B95C9E3E1F01F76200A5D6CB /* Initial */ = {
 			isa = PBXGroup;
 			children = (
-				B95C9E471F020B7600A5D6CB /* InitialAnimator.swift */,
-				B95C9E4B1F022DC100A5D6CB /* InitialKeyboardObserverHandler.swift */,
-				B95C9E3F1F01F76A00A5D6CB /* InitialViewController.swift */,
-				B95C9E451F02034000A5D6CB /* PasswordResetInputView.swift */,
-				B95C9E411F01F9DC00A5D6CB /* SignInInputView.swift */,
-				B95C9E431F02003E00A5D6CB /* SignUpInputView.swift */,
+				B974C0F41F15EB0100B1A993 /* Core */,
+				B974C0F11F15EAF400B1A993 /* Screen */,
 			);
 			path = Initial;
 			sourceTree = "<group>";
@@ -360,7 +394,8 @@
 		B96CA5151F00AADD007422A7 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				B96CA5161F00AAF5007422A7 /* SignInViewController.swift */,
+				B974C0D41F15E0CC00B1A993 /* Core */,
+				B974C0D61F15E0D400B1A993 /* Screen */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -398,7 +433,8 @@
 		B96CA5321F00EB22007422A7 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				B96CA5331F00EB38007422A7 /* SignUpViewController.swift */,
+				B974C0DA1F15E29C00B1A993 /* Core */,
+				B974C0D71F15E28D00B1A993 /* Screen */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -406,9 +442,94 @@
 		B96CA5351F00F00E007422A7 /* PasswordReset */ = {
 			isa = PBXGroup;
 			children = (
-				B96CA5361F00F01A007422A7 /* PasswordResetViewController.swift */,
+				B974C0E61F15E3BA00B1A993 /* Core */,
+				B974C0E31F15E3AA00B1A993 /* Screen */,
 			);
 			path = PasswordReset;
+			sourceTree = "<group>";
+		};
+		B974C0D41F15E0CC00B1A993 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B974C0D21F15E0C100B1A993 /* SignInAssembly.swift */,
+				B974C0CE1F15E00500B1A993 /* SignInInteractor.swift */,
+				B974C0CC1F15DEBE00B1A993 /* SignInModels.swift */,
+				B974C0D01F15E04200B1A993 /* SignInPresenter.swift */,
+				B974C0CA1F15DE2400B1A993 /* SignInProtocols.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		B974C0D61F15E0D400B1A993 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B96CA5161F00AAF5007422A7 /* SignInViewController.swift */,
+			);
+			name = Screen;
+			sourceTree = "<group>";
+		};
+		B974C0D71F15E28D00B1A993 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B96CA5331F00EB38007422A7 /* SignUpViewController.swift */,
+			);
+			name = Screen;
+			sourceTree = "<group>";
+		};
+		B974C0DA1F15E29C00B1A993 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B974C0E11F15E34B00B1A993 /* SignUpAssembly.swift */,
+				B974C0DD1F15E30F00B1A993 /* SignUpInteractor.swift */,
+				B974C0DB1F15E2CE00B1A993 /* SignUpModels.swift */,
+				B974C0DF1F15E32D00B1A993 /* SignUpPresenter.swift */,
+				B974C0D81F15E29900B1A993 /* SignUpProtocols.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		B974C0E31F15E3AA00B1A993 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B96CA5361F00F01A007422A7 /* PasswordResetViewController.swift */,
+			);
+			name = Screen;
+			sourceTree = "<group>";
+		};
+		B974C0E61F15E3BA00B1A993 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B974C0ED1F15E55700B1A993 /* PasswordResetAssembly.swift */,
+				B974C0E91F15E48000B1A993 /* PasswordResetInteractor.swift */,
+				B974C0E71F15E42600B1A993 /* PasswordResetModels.swift */,
+				B974C0EB1F15E50A00B1A993 /* PasswordResetPresenter.swift */,
+				B974C0E41F15E3B600B1A993 /* PasswordResetProtocols.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		B974C0F11F15EAF400B1A993 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B95C9E471F020B7600A5D6CB /* InitialAnimator.swift */,
+				B95C9E4B1F022DC100A5D6CB /* InitialKeyboardObserverHandler.swift */,
+				B95C9E3F1F01F76A00A5D6CB /* InitialViewController.swift */,
+				B974C0EF1F15E94800B1A993 /* InitialViewControllerGenerator.swift */,
+				B95C9E451F02034000A5D6CB /* PasswordResetInputView.swift */,
+				B95C9E411F01F9DC00A5D6CB /* SignInInputView.swift */,
+				B95C9E431F02003E00A5D6CB /* SignUpInputView.swift */,
+			);
+			name = Screen;
+			sourceTree = "<group>";
+		};
+		B974C0F41F15EB0100B1A993 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B974C0F51F15ED6700B1A993 /* InitialAssembly.swift */,
+				B974C0F71F15F20000B1A993 /* InitialInteractor.swift */,
+				B974C0F21F15EAFE00B1A993 /* InitialProtocols.swift */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		B9A895651F04BF71008C5833 /* SongList */ = {
@@ -639,6 +760,7 @@
 			files = (
 				B9A8956B1F04C190008C5833 /* SongListCell.swift in Sources */,
 				B9E2BAEE1F133296004701AC /* FlowModule.swift in Sources */,
+				B974C0E21F15E34B00B1A993 /* SignUpAssembly.swift in Sources */,
 				B9E2BAE31F132FB0004701AC /* SongListInteractor.swift in Sources */,
 				B95C9E4A1F021DF800A5D6CB /* KeyboardObserverProtocol.swift in Sources */,
 				B992BC051F0498AB00F063C4 /* HomeCell.swift in Sources */,
@@ -650,12 +772,15 @@
 				B9A971F91F061BB400ACCA8F /* MusicPlayerTrackViewItem.swift in Sources */,
 				B95C9E481F020B7600A5D6CB /* InitialAnimator.swift in Sources */,
 				B92ADBB51F0CAE75000799B1 /* Artist.swift in Sources */,
+				B974C0DE1F15E30F00B1A993 /* SignUpInteractor.swift in Sources */,
+				B974C0E81F15E42600B1A993 /* PasswordResetModels.swift in Sources */,
 				B992BBFD1F048C4D00F063C4 /* HomeContentCell.swift in Sources */,
 				B92ADBB91F0CBC7A000799B1 /* MusicPlayerAssembly.swift in Sources */,
 				B9A8956D1F04C54B008C5833 /* SongListCellItem.swift in Sources */,
 				B9A8956F1F04C986008C5833 /* SongListViewItem.swift in Sources */,
 				B9E2BAE71F133070004701AC /* SongListViewControllerGenerator.swift in Sources */,
 				B95C9E401F01F76A00A5D6CB /* InitialViewController.swift in Sources */,
+				B974C0D11F15E04200B1A993 /* SignInPresenter.swift in Sources */,
 				B9A895691F04BF71008C5833 /* SongListViewController.swift in Sources */,
 				B92ADBB31F0CAE46000799B1 /* Song.swift in Sources */,
 				B9A971F41F05F56200ACCA8F /* UIViewExtension.swift in Sources */,
@@ -663,18 +788,30 @@
 				B9E2BAD71F13212D004701AC /* Playlist.swift in Sources */,
 				B91232061F036F3D0021A078 /* HomeViewController.swift in Sources */,
 				B9E2BAEC1F133287004701AC /* FlowController.swift in Sources */,
+				B974C0EC1F15E50A00B1A993 /* PasswordResetPresenter.swift in Sources */,
+				B974C0F61F15ED6700B1A993 /* InitialAssembly.swift in Sources */,
 				B9BBA5741F0B371D00504CFB /* MusicPlayerProtocols.swift in Sources */,
+				B974C0D91F15E29900B1A993 /* SignUpProtocols.swift in Sources */,
 				B992BC091F04A46300F063C4 /* ReusableProtocol.swift in Sources */,
 				B9A971F21F05F2F700ACCA8F /* MusicPlayerControl.swift in Sources */,
 				B96CA5371F00F01A007422A7 /* PasswordResetViewController.swift in Sources */,
+				B974C0EE1F15E55700B1A993 /* PasswordResetAssembly.swift in Sources */,
 				B9E2BAE11F132F91004701AC /* SongListPresenter.swift in Sources */,
+				B974C0F81F15F20000B1A993 /* InitialInteractor.swift in Sources */,
 				B95C9E441F02003E00A5D6CB /* SignUpInputView.swift in Sources */,
 				B9A895681F04BF71008C5833 /* SongListHeader.swift in Sources */,
 				B90B0C591F14703600462BDF /* SongDisplay.swift in Sources */,
 				B9A971F01F05F2DD00ACCA8F /* MusicPlayerTrackView.swift in Sources */,
+				B974C0CB1F15DE2400B1A993 /* SignInProtocols.swift in Sources */,
 				B9A895711F04C9B5008C5833 /* SongListHeaderItem.swift in Sources */,
+				B974C0DC1F15E2CE00B1A993 /* SignUpModels.swift in Sources */,
+				B974C0EA1F15E48000B1A993 /* PasswordResetInteractor.swift in Sources */,
+				B974C0E51F15E3B600B1A993 /* PasswordResetProtocols.swift in Sources */,
 				B95C9E421F01F9DC00A5D6CB /* SignInInputView.swift in Sources */,
+				B974C0E01F15E32D00B1A993 /* SignUpPresenter.swift in Sources */,
 				B96CA5171F00AAF5007422A7 /* SignInViewController.swift in Sources */,
+				B974C0F31F15EAFE00B1A993 /* InitialProtocols.swift in Sources */,
+				B974C0CD1F15DEBE00B1A993 /* SignInModels.swift in Sources */,
 				B9DFF0D11F07398700A62E57 /* PhotoPageController.swift in Sources */,
 				B92ADBBB1F0CBCE5000799B1 /* MusicPlayerInteractor.swift in Sources */,
 				B95C9E461F02034000A5D6CB /* PasswordResetInputView.swift in Sources */,
@@ -691,9 +828,12 @@
 				B9E2BADC1F132EF1004701AC /* SongListProtocols.swift in Sources */,
 				B96CA5341F00EB38007422A7 /* SignUpViewController.swift in Sources */,
 				B91232081F038DAA0021A078 /* HomeHeader.swift in Sources */,
+				B974C0CF1F15E00500B1A993 /* SignInInteractor.swift in Sources */,
 				B90B0C5D1F14705000462BDF /* PlaylistDisplay.swift in Sources */,
 				B92ADBB71F0CAF01000799B1 /* Album.swift in Sources */,
 				B90B0C5B1F14704400462BDF /* AlbumDisplay.swift in Sources */,
+				B974C0F01F15E94800B1A993 /* InitialViewControllerGenerator.swift in Sources */,
+				B974C0D31F15E0C100B1A993 /* SignInAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
