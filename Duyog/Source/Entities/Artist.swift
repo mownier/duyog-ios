@@ -28,30 +28,20 @@ struct Artist: Hashable {
         return lhs.id == rhs.id && !lhs.id.isEmpty && !rhs.id.isEmpty
     }
     
-    struct Collection {
+    struct Data: Hashable {
         
         var artist: Artist
-        var albums: [Album]
-        var songs: [Song.CollectionItem]
+        var songs: [Song.Data]
         
-        var songCount: Int { return songs.count }
+        var hashValue: Int { return artist.hashValue }
         
-        init(artist: Artist, albums: [Album] = [], songs: [Song.CollectionItem] = []) {
+        init(artist: Artist, songs: [Song.Data] = []) {
             self.artist = artist
-            self.albums = Array(Set(albums))
-            self.songs = Array(Set(songs))
+            self.songs = songs
         }
         
-        func song(_ index: Int) -> Song? {
-            guard index >= 0 && index < songs.count else { return nil }
-            
-            return songs[index].song
-        }
-        
-        func album(_ index: Int) -> [Album] {
-            guard index >= 0 && index < songs.count else { return [] }
-            
-            return albums.filter({ songs[index].albums.contains($0.id) })
+        static func ==(lhs: Data, rhs: Data) -> Bool {
+            return lhs.artist == rhs.artist
         }
     }
 }

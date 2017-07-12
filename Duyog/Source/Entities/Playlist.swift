@@ -13,9 +13,7 @@ struct Playlist: Hashable {
     var description: String
     var photoURL: String
     
-    var hashValue: Int {
-        return id.hashValue
-    }
+    var hashValue: Int { return id.hashValue }
     
     init(id: String, name: String = "", description: String = "", photoURL: String = "") {
         self.id = id
@@ -28,38 +26,20 @@ struct Playlist: Hashable {
         return lhs.id == rhs.id && !lhs.id.isEmpty && !rhs.id.isEmpty
     }
     
-    struct Collection {
+    struct Data: Hashable {
         
         var playlist: Playlist
-        var artists: [Artist]
-        var albums: [Album]
-        var songs: [Song.CollectionItem]
+        var songs: [Song.Data]
         
-        var songCount: Int { return songs.count }
+        var hashValue: Int { return playlist.hashValue }
         
-        init(playlist: Playlist, artists: [Artist] = [], albums: [Album] = [], songs: [Song.CollectionItem] = []) {
+        init(playlist: Playlist, songs: [Song.Data] = []) {
             self.playlist = playlist
-            self.artists = Array(Set(artists))
-            self.albums = Array(Set(albums))
-            self.songs = Array(Set(songs))
+            self.songs = songs
         }
         
-        func song(_ index: Int) -> Song? {
-            guard index >= 0 && index < songs.count else { return nil }
-            
-            return songs[index].song
-        }
-        
-        func album(_ index: Int) -> [Album] {
-            guard index >= 0 && index < songs.count else { return [] }
-            
-            return albums.filter({ songs[index].albums.contains($0.id) })
-        }
-        
-        func artist(_ index: Int) -> [Artist] {
-            guard index >= 0 && index < songs.count else { return [] }
-            
-            return artists.filter({ songs[index].artists.contains($0.id) })
+        static func ==(lhs: Data, rhs: Data) -> Bool {
+            return lhs.playlist == rhs.playlist
         }
     }
 }

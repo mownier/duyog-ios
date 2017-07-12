@@ -14,9 +14,7 @@ struct Song: Hashable {
     var duration: Double
     var streamURL: String
     
-    var hashValue: Int {
-        return id.hashValue
-    }
+    var hashValue: Int { return id.hashValue }
     
     init(id: String, title: String = "", genre: String = "", duration: Double = 0, streamURL: String = "") {
         self.id = id
@@ -30,48 +28,22 @@ struct Song: Hashable {
         return lhs.id == rhs.id && !lhs.id.isEmpty && !rhs.id.isEmpty
     }
     
-    struct CollectionItem: Hashable {
+    struct Data: Hashable {
         
         var song: Song
-        var artists: [String]
-        var albums: [String]
+        var artists: [Artist]
+        var albums: [Album]
         
-        init(song: Song, artists: [String], albums: [String]) {
+        var hashValue: Int { return song.hashValue }
+        
+        init(song: Song, artists: [Artist] = [], albums: [Album] = []) {
             self.song = song
             self.artists = artists
             self.albums = albums
         }
         
-        var hashValue: Int {
-            return song.hashValue
-        }
-        
-        static func ==(lhs: CollectionItem, rhs: CollectionItem) -> Bool {
-            return lhs == rhs
-        }
-    }
-    
-    struct Collection {
-        
-        var songs: [Song.CollectionItem]
-        var albums: [Album]
-        var artists: [Artist]
-        
-        init(songs: [Song.CollectionItem], albums: [Album], artists: [Artist]) {
-            self.songs = Array(Set(songs))
-            self.albums = Array(Set(albums))
-            self.artists = Array(Set(artists))
-        }
-        
-        subscript(index: Int) -> (Song, [Album], [Artist])? {
-            guard index >= 0 && index < songs.count else { return nil }
-            
-            let song = songs[index].song
-            let album = albums.filter({ songs[index].albums.contains($0.id) })
-            let artist = artists.filter({ songs[index].artists.contains($0.id) })
-            
-            return (song, album, artist)
+        static func ==(lhs: Data, rhs: Data) -> Bool {
+            return lhs.song == rhs.song
         }
     }
 }
-
