@@ -10,18 +10,21 @@ import UIKit
 
 protocol SongListInteractorInputProtocol: class {
     
+    func load()
     func fetchSongs()
     func selectSongsToPlay(_ type: SongListPlayType)
 }
 
 protocol SongListInteractorOutputProtocol: class {
     
+    func onLoad(_ title: String)
     func didFetchSongs(_ type: InteractorSongListType)
     func willPlaySongs(_ songs: [Song.Data])
 }
 
 protocol SongListPresenterOutputProtocol: class {
     
+    func displayTitle(_ title: String)
     func displaySongs(_ type: PresenterSongListType)
     func playSongs(_ songs: [Song.Data])
 }
