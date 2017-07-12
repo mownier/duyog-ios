@@ -8,7 +8,11 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, FlowControllable, HomeViewControllerProtocol {
+    
+    var flowController: FlowControllerProtocol!
+    var interactor: HomeInteractorInputProtocol!
+    weak var moduleOutput: HomeModuleOutputProtocol?
     
     var navigationTitleLabel: UILabel?
     var header: HomeHeader!
@@ -169,5 +173,12 @@ extension HomeViewController: UICollectionViewDataSource {
         let item = contentItems[indexPath.row]
         cell.content.item = item
         return cell
+    }
+}
+
+extension HomeViewController: HomePresenterOutputProtocol {
+    
+    func displayData() {
+        
     }
 }
