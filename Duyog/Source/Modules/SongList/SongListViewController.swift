@@ -123,28 +123,13 @@ class SongListViewController: UIViewController, SongListViewControllerProtocol, 
     }
     
     func didTapBack() {
-        let _ = navigationController?.popViewController(animated: true)
+        flowController.exit(true)
     }
     
     func didTapPlayButton() {
         guard item.cellItems.count > 0 else { return }
         
-        let player = MusicPlayerViewController()
-        var musicItems = [MusicPlayerViewDisplayItem]()
-        var musicItem = MusicPlayerViewDisplayItem()
-        musicItem.artistText = item.headerItem.titleText
-        
-        for cellItem in item.cellItems {
-            var trackItem = MusicPlayerTrackViewDisplayItem()
-            trackItem.durationText = "\(arc4random() % 10):\(arc4random() % 6)\(arc4random() % 10)"
-            musicItem.songTitleText = cellItem.titleText
-            musicItem.trackItem = trackItem
-            musicItems.append(musicItem)
-        }
-        
-        
-        player.items = musicItems
-        player.present(from: self)
+        flowController.showMusicPlayer(.present(self, true, UINavigationController()), songs: [], moduleOutput: nil)
     }
 }
 
@@ -178,7 +163,7 @@ extension SongListViewController: SongListPresenterOutputProtocol {
         
     }
     
-    func playSongs(_ songs: Song.Collection) {
+    func playSongs(_ songs: [Song.Data]) {
 
     }
 }

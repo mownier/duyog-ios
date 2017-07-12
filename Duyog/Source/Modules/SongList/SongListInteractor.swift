@@ -18,14 +18,19 @@ class SongListInteractor: SongListInteractorInputProtocol {
     func fetchSongs() {
         switch type {
         case .album:
-            type = InteractorSongListType.album(Album.Collection(album: Album(id: "")))
+            let newData = Album.Data(album: Album(id: ""), songs: [])
+            type = InteractorSongListType.album(newData)
             
         case .artist:
-            type = InteractorSongListType.artist(Artist.Collection(artist: Artist(id: "")))
+            let newData = Artist.Data(artist: Artist(id: ""), songs: [])
+            type = InteractorSongListType.artist(newData)
             
         case .playlist:
-            type = InteractorSongListType.playlist(Playlist.Collection(playlist: Playlist(id: "")))
+            let newData = Playlist.Data(playlist: Playlist(id: ""), songs: [])
+            type = InteractorSongListType.playlist(newData)
+
         }
+        
         output.didFetchSongs(type)
     }
     
@@ -33,84 +38,26 @@ class SongListInteractor: SongListInteractorInputProtocol {
         switch playType {
         case .all:
             switch type {
-            case .album(let collection):
-                let songs = Song.Collection(songs: collection.songs, albums: [collection.album], artists: collection.artists)
-                output.willPlaySongs(songs)
+            case .album(let data):
+                output.willPlaySongs(data.songs)
             
-            case .artist(let collection):
-                let songs = Song.Collection(songs: collection.songs, albums: collection.albums, artists: [collection.artist])
-                output.willPlaySongs(songs)
+            case .artist(let data):
+                output.willPlaySongs(data.songs)
                 
-            case .playlist(let collection):
-                let songs = Song.Collection(songs: collection.songs, albums: collection.albums, artists: collection.artists)
-                output.willPlaySongs(songs)
+            case .playlist(let data):
+                output.willPlaySongs(data.songs)
             }
         
         case .selected(let indices):
             switch type {
-            case .album(let collection):
-                var songs: [Song.CollectionItem] = []
-                var artists: [Artist] = []
-
-                for (index, song) in collection.songs.enumerated() {
-                    guard indices.contains(index) else { continue }
-                    
-                    songs.append(song)
-                    
-                    for artist in collection.artist(index) {
-                        guard !artists.contains(artist) else { continue }
-                        
-                        artists.append(artist)
-                    }
-                }
+            case .album(let data):
+                output.willPlaySongs(data.songs.enumerated().filter({ indices.contains($0.offset) }).map({ $0.element }))
                 
-                let collectionSongs = Song.Collection(songs: songs, albums: [collection.album], artists: artists)
-                output.willPlaySongs(collectionSongs)
+            case .artist(let data):
+                output.willPlaySongs(data.songs.enumerated().filter({ indices.contains($0.offset) }).map({ $0.element }))
                 
-            case .artist(let collection):
-                var songs: [Song.CollectionItem] = []
-                var albums: [Album] = []
-                
-                for (index, song) in collection.songs.enumerated() {
-                    guard indices.contains(index) else { continue }
-                    
-                    songs.append(song)
-                    
-                    for album in collection.album(index) {
-                        guard !albums.contains(album) else { continue }
-                        
-                        albums.append(album)
-                    }
-                }
-                
-                let collectionSongs = Song.Collection(songs: songs, albums: albums, artists: [collection.artist])
-                output.willPlaySongs(collectionSongs)
-                
-            case .playlist(let collection):
-                var songs: [Song.CollectionItem] = []
-                var albums: [Album] = []
-                var artists: [Artist] = []
-                
-                for (index, song) in collection.songs.enumerated() {
-                    guard indices.contains(index) else { continue }
-                    
-                    songs.append(song)
-                    
-                    for album in collection.album(index) {
-                        guard !albums.contains(album) else { continue }
-                        
-                        albums.append(album)
-                    }
-                    
-                    for artist in collection.artist(index) {
-                        guard !artists.contains(artist) else { continue }
-                        
-                        artists.append(artist)
-                    }
-                }
-                
-                let collectionSongs = Song.Collection(songs: songs, albums: albums, artists: artists)
-                output.willPlaySongs(collectionSongs)
+            case .playlist(let data):
+                output.willPlaySongs(data.songs.enumerated().filter({ indices.contains($0.offset) }).map({ $0.element }))
             }
         }
     }

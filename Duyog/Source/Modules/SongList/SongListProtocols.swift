@@ -17,13 +17,13 @@ protocol SongListInteractorInputProtocol: class {
 protocol SongListInteractorOutputProtocol: class {
     
     func didFetchSongs(_ type: InteractorSongListType)
-    func willPlaySongs(_ songs: Song.Collection)
+    func willPlaySongs(_ songs: [Song.Data])
 }
 
 protocol SongListPresenterOutputProtocol: class {
     
     func displaySongs(_ type: PresenterSongListType)
-    func playSongs(_ songs: Song.Collection)
+    func playSongs(_ songs: [Song.Data])
 }
 
 protocol SongListModuleOutputProtocol: class {

@@ -13,17 +13,20 @@ class SongListPresenter: SongListInteractorOutputProtocol {
     func didFetchSongs(_ type: InteractorSongListType) {
         switch type {
         case .album:
-            output.displaySongs(PresenterSongListType.album(SongListDisplayAlbum.Collection(album: SongListDisplayAlbum())))
+            let item = Album.Display.Item(album: Album.Display(), songs: [])
+            output.displaySongs(PresenterSongListType.album(item))
             
         case .artist:
-            output.displaySongs(PresenterSongListType.artist(SongListDisplayArtist.Collection(artist: SongListDisplayArtist())))
+            let item = Artist.Display.Item(artist: Artist.Display(), songs: [])
+            output.displaySongs(PresenterSongListType.artist(item))
             
         case .playlist:
-            output.displaySongs(PresenterSongListType.playlist(SongListDisplayPlaylist.Collection(playlist: SongListDisplayPlaylist())))
+            let item = Playlist.Display.Item(playlist: Playlist.Display(), songs: [])
+            output.displaySongs(PresenterSongListType.playlist(item))
         }
     }
     
-    func willPlaySongs(_ songs: Song.Collection) {
+    func willPlaySongs(_ songs: [Song.Data]) {
         output.playSongs(songs)
     }
 }
