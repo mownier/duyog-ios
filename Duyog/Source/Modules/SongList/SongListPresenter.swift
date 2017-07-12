@@ -6,23 +6,40 @@
 //  Copyright © 2017 Ner. All rights reserved.
 //
 
+import Foundation
+
 class SongListPresenter: SongListInteractorOutputProtocol {
     
     weak var output: SongListPresenterOutputProtocol!
     
+    lazy var formatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .second]
+        formatter.unitsStyle = .positional
+        formatter.zeroFormattingBehavior = .pad
+        return formatter
+    }()
+    
+    func onLoad(_ title: String) {
+        output.displayTitle(title.uppercased())
+    }
+    
     func didFetchSongs(_ type: InteractorSongListType) {
         switch type {
-        case .album:
-            let item = Album.Display.Item(album: Album.Display(), songs: [])
-            output.displaySongs(PresenterSongListType.album(item))
+        case .artist(let info):
+            let artist = Artist.Display(nameText: info.artist.name, bioText: info.artist.bio, genreText: info.artist.genre)
+            let songs = info.songs.map({ data -> Song.Display.Item in
+                let display = Song.Display(titleText: data.song.title, genreText: data.song.genre, durationText: formatter.string(from: data.song.duration) ?? "")
+                let albums = data.albums.map({ Album.Display(photoURLPath: $0.photoURL, nameText: $0.name, yearText: "\($0.year)") })
+                let item = Song.Display.Item(song: display, artists: [artist], albums: albums)
+                return item
+            })
             
-        case .artist:
-            let item = Artist.Display.Item(artist: Artist.Display(), songs: [])
+            let item = Artist.Display.Item(artist: artist, songs: songs)
             output.displaySongs(PresenterSongListType.artist(item))
-            
-        case .playlist:
-            let item = Playlist.Display.Item(playlist: Playlist.Display(), songs: [])
-            output.displaySongs(PresenterSongListType.playlist(item))
+        
+        default:
+            break
         }
     }
     
