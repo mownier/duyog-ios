@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         flowController = FlowController(window: window!)
-        showHomeAsRoot(flowController)
+        showInitialAsRoot(flowController)
         return true
     }
 }
@@ -26,21 +26,21 @@ func showMusicPlayerAsRoot(_ flowController: FlowControllerProtocol) {
     let artist = Artist(id: "a1", name: "Jacky Chang", bio: "", genre: "Pop")
     let album = Album(id: "b1", photoURL: "", name: "Vispop", year: 2017)
     let data = Song.Data(song: song, artists: [artist], albums: [album])
-    flowController.showMusicPlayer(.root(navigationController), songs: [data, data, data, data, data, data], moduleOutput: nil)
+    flowController.showMusicPlayer(.root(duyogNavController), songs: [data, data, data, data, data, data], moduleOutput: nil)
 }
 
 func showInitialAsRoot(_ flowController: FlowControllerProtocol) {
-    let nav = navigationController
+    let nav = duyogNavController
     nav.isNavigationBarHidden = true
     flowController.showInitial(.root(nav))
 }
 
 func showHomeAsRoot(_ flowController: FlowControllerProtocol) {
-    let nav = navigationController
+    let nav = duyogNavController
     flowController.showHome(.root(nav))
 }
 
-var navigationController: UINavigationController {
+var duyogNavController: UINavigationController {
     let nav = UINavigationController()
     nav.navigationBar.setBackgroundImage(UIImage(), for: .default)
     nav.navigationBar.shadowImage = UIImage()

@@ -314,7 +314,7 @@ extension InitialViewController: SignInPresenterOutputProtocol {
     }
     
     func onSignInOk() {
-        
+        flowController.showHome(.root(duyogNavController))
     }
 }
 
@@ -325,7 +325,7 @@ extension InitialViewController: SignUpPresenterOutputProtocol {
     }
     
     func onSignUpOk() {
-        
+        flowController.showHome(.root(duyogNavController))
     }
 }
 
@@ -336,6 +336,6 @@ extension InitialViewController: PasswordResetPresenterOutputProtocol {
     }
     
     func onResetPasswordOk() {
-        
+        state = .signIn
     }
 }
