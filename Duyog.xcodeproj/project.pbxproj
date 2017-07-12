@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B90B0C571F14701100462BDF /* ArtistDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90B0C561F14701100462BDF /* ArtistDisplay.swift */; };
+		B90B0C591F14703600462BDF /* SongDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90B0C581F14703600462BDF /* SongDisplay.swift */; };
+		B90B0C5B1F14704400462BDF /* AlbumDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90B0C5A1F14704400462BDF /* AlbumDisplay.swift */; };
+		B90B0C5D1F14705000462BDF /* PlaylistDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90B0C5C1F14705000462BDF /* PlaylistDisplay.swift */; };
+		B90B0C601F14C8EB00462BDF /* MusicPlayerViewControllerGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90B0C5F1F14C8EB00462BDF /* MusicPlayerViewControllerGenerator.swift */; };
 		B91232061F036F3D0021A078 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91232051F036F3D0021A078 /* HomeViewController.swift */; };
 		B91232081F038DAA0021A078 /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91232071F038DAA0021A078 /* HomeHeader.swift */; };
 		B913CE931F00A4AF00916D40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913CE911F00A4AF00916D40 /* Main.storyboard */; };
@@ -20,7 +25,6 @@
 		B92ADBB71F0CAF01000799B1 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92ADBB61F0CAF01000799B1 /* Album.swift */; };
 		B92ADBB91F0CBC7A000799B1 /* MusicPlayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92ADBB81F0CBC7A000799B1 /* MusicPlayerAssembly.swift */; };
 		B92ADBBB1F0CBCE5000799B1 /* MusicPlayerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92ADBBA1F0CBCE5000799B1 /* MusicPlayerInteractor.swift */; };
-		B92ADBBF1F0CBD71000799B1 /* MusicPlayerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92ADBBE1F0CBD71000799B1 /* MusicPlayerRouter.swift */; };
 		B95C9E401F01F76A00A5D6CB /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C9E3F1F01F76A00A5D6CB /* InitialViewController.swift */; };
 		B95C9E421F01F9DC00A5D6CB /* SignInInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C9E411F01F9DC00A5D6CB /* SignInInputView.swift */; };
 		B95C9E441F02003E00A5D6CB /* SignUpInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C9E431F02003E00A5D6CB /* SignUpInputView.swift */; };
@@ -95,6 +99,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B90B0C561F14701100462BDF /* ArtistDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDisplay.swift; sourceTree = "<group>"; };
+		B90B0C581F14703600462BDF /* SongDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongDisplay.swift; sourceTree = "<group>"; };
+		B90B0C5A1F14704400462BDF /* AlbumDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDisplay.swift; sourceTree = "<group>"; };
+		B90B0C5C1F14705000462BDF /* PlaylistDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistDisplay.swift; sourceTree = "<group>"; };
+		B90B0C5F1F14C8EB00462BDF /* MusicPlayerViewControllerGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewControllerGenerator.swift; sourceTree = "<group>"; };
 		B91232051F036F3D0021A078 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B91232071F038DAA0021A078 /* HomeHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
 		B913CE8A1F00A4AF00916D40 /* Duyog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Duyog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,7 +123,6 @@
 		B92ADBB61F0CAF01000799B1 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		B92ADBB81F0CBC7A000799B1 /* MusicPlayerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerAssembly.swift; sourceTree = "<group>"; };
 		B92ADBBA1F0CBCE5000799B1 /* MusicPlayerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerInteractor.swift; sourceTree = "<group>"; };
-		B92ADBBE1F0CBD71000799B1 /* MusicPlayerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerRouter.swift; sourceTree = "<group>"; };
 		B95C9E3F1F01F76A00A5D6CB /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		B95C9E411F01F9DC00A5D6CB /* SignInInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInInputView.swift; sourceTree = "<group>"; };
 		B95C9E431F02003E00A5D6CB /* SignUpInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInputView.swift; sourceTree = "<group>"; };
@@ -197,6 +205,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B90B0C551F146FD900462BDF /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				B92ADBB61F0CAF01000799B1 /* Album.swift */,
+				B92ADBB41F0CAE75000799B1 /* Artist.swift */,
+				B9E2BAD61F13212D004701AC /* Playlist.swift */,
+				B92ADBB21F0CAE46000799B1 /* Song.swift */,
+			);
+			name = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		B90B0C5E1F14705600462BDF /* DisplayLogic */ = {
+			isa = PBXGroup;
+			children = (
+				B90B0C5A1F14704400462BDF /* AlbumDisplay.swift */,
+				B90B0C561F14701100462BDF /* ArtistDisplay.swift */,
+				B90B0C5C1F14705000462BDF /* PlaylistDisplay.swift */,
+				B90B0C581F14703600462BDF /* SongDisplay.swift */,
+			);
+			name = DisplayLogic;
+			sourceTree = "<group>";
+		};
 		B91232041F036F2E0021A078 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,10 +293,8 @@
 		B92ADBB11F0CAE3E000799B1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				B92ADBB61F0CAF01000799B1 /* Album.swift */,
-				B92ADBB41F0CAE75000799B1 /* Artist.swift */,
-				B9E2BAD61F13212D004701AC /* Playlist.swift */,
-				B92ADBB21F0CAE46000799B1 /* Song.swift */,
+				B90B0C551F146FD900462BDF /* BusinessLogic */,
+				B90B0C5E1F14705600462BDF /* DisplayLogic */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -395,19 +423,35 @@
 		B9A971EC1F05F17C00ACCA8F /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				B9CB86E11F14649000804956 /* Core */,
+				B9CB86E01F14648900804956 /* Screen */,
+			);
+			path = MusicPlayer;
+			sourceTree = "<group>";
+		};
+		B9CB86E01F14648900804956 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
 				B9A971F11F05F2F700ACCA8F /* MusicPlayerControl.swift */,
 				B9A971FC1F06369800ACCA8F /* MusicPlayerControlConfig.swift */,
 				B9A971EF1F05F2DD00ACCA8F /* MusicPlayerTrackView.swift */,
 				B9A971F81F061BB400ACCA8F /* MusicPlayerTrackViewItem.swift */,
 				B9A971ED1F05F18E00ACCA8F /* MusicPlayerViewController.swift */,
+				B90B0C5F1F14C8EB00462BDF /* MusicPlayerViewControllerGenerator.swift */,
 				B9A971FA1F061D8F00ACCA8F /* MusicPlayerViewItem.swift */,
-				B9BBA5731F0B371D00504CFB /* MusicPlayerProtocols.swift */,
-				B92ADBAF1F0CAB59000799B1 /* MusicPlayerPresenter.swift */,
+			);
+			name = Screen;
+			sourceTree = "<group>";
+		};
+		B9CB86E11F14649000804956 /* Core */ = {
+			isa = PBXGroup;
+			children = (
 				B92ADBB81F0CBC7A000799B1 /* MusicPlayerAssembly.swift */,
 				B92ADBBA1F0CBCE5000799B1 /* MusicPlayerInteractor.swift */,
-				B92ADBBE1F0CBD71000799B1 /* MusicPlayerRouter.swift */,
+				B92ADBAF1F0CAB59000799B1 /* MusicPlayerPresenter.swift */,
+				B9BBA5731F0B371D00504CFB /* MusicPlayerProtocols.swift */,
 			);
-			path = MusicPlayer;
+			name = Core;
 			sourceTree = "<group>";
 		};
 		B9E2BADA1F132EE5004701AC /* Screen */ = {
@@ -626,6 +670,7 @@
 				B9E2BAE11F132F91004701AC /* SongListPresenter.swift in Sources */,
 				B95C9E441F02003E00A5D6CB /* SignUpInputView.swift in Sources */,
 				B9A895681F04BF71008C5833 /* SongListHeader.swift in Sources */,
+				B90B0C591F14703600462BDF /* SongDisplay.swift in Sources */,
 				B9A971F01F05F2DD00ACCA8F /* MusicPlayerTrackView.swift in Sources */,
 				B9A895711F04C9B5008C5833 /* SongListHeaderItem.swift in Sources */,
 				B95C9E421F01F9DC00A5D6CB /* SignInInputView.swift in Sources */,
@@ -635,9 +680,10 @@
 				B95C9E461F02034000A5D6CB /* PasswordResetInputView.swift in Sources */,
 				B96CA51C1F00B5B7007422A7 /* GradientView.swift in Sources */,
 				B96CA5111F00AA65007422A7 /* AppDelegate.swift in Sources */,
+				B90B0C571F14701100462BDF /* ArtistDisplay.swift in Sources */,
+				B90B0C601F14C8EB00462BDF /* MusicPlayerViewControllerGenerator.swift in Sources */,
 				B992BC031F0492BB00F063C4 /* HomeContentCellItem.swift in Sources */,
 				B9A971FB1F061D8F00ACCA8F /* MusicPlayerViewItem.swift in Sources */,
-				B92ADBBF1F0CBD71000799B1 /* MusicPlayerRouter.swift in Sources */,
 				B992BBFB1F048BAD00F063C4 /* HomeContentViewController.swift in Sources */,
 				B9E2BAE51F132FF4004701AC /* SongListAssembly.swift in Sources */,
 				B9E2BADF1F132F4B004701AC /* SongListModels.swift in Sources */,
@@ -645,7 +691,9 @@
 				B9E2BADC1F132EF1004701AC /* SongListProtocols.swift in Sources */,
 				B96CA5341F00EB38007422A7 /* SignUpViewController.swift in Sources */,
 				B91232081F038DAA0021A078 /* HomeHeader.swift in Sources */,
+				B90B0C5D1F14705000462BDF /* PlaylistDisplay.swift in Sources */,
 				B92ADBB71F0CAF01000799B1 /* Album.swift in Sources */,
+				B90B0C5B1F14704400462BDF /* AlbumDisplay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
