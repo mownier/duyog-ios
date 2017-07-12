@@ -159,7 +159,7 @@ class MusicPlayerViewController: UIViewController, MusicPlayerViewControllerProt
     }
     
     func didTapBack() {
-        dismiss(animated: true, completion: nil)
+        flowController.exit(true)
     }
     
     func embedInNavigationController() -> UINavigationController {
