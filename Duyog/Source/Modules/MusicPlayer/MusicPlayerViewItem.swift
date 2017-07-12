@@ -8,39 +8,16 @@
 
 import UIKit
 
-protocol MusicPlayerViewItem {
-
-    var trackItem: MusicPlayerTrackViewItem { get }
-    var songTitleText: String { get }
-    var artistText: String { get }
-    var photoURLPath: String { get }
-}
-
 protocol MusicPlayerViewConfig {
     
-    func configure(_ item: MusicPlayerViewItem)
+    func configure(_ item: Song.Display.Item)
 }
 
 extension MusicPlayerViewController: MusicPlayerViewConfig {
     
-    func configure(_ item: MusicPlayerViewItem) {
-        trackView.configure(item.trackItem)
-        songTitleLabel.text = item.songTitleText
-        artistLabel.text = item.artistText
-    }
-}
-
-struct MusicPlayerViewDisplayItem: MusicPlayerViewItem {
-    
-    var trackItem: MusicPlayerTrackViewItem
-    var songTitleText: String
-    var artistText: String
-    var photoURLPath: String
-    
-    init() {
-        trackItem = MusicPlayerTrackViewDisplayItem()
-        songTitleText = ""
-        artistText = ""
-        photoURLPath = ""
+    func configure(_ item: Song.Display.Item) {
+        trackView.configure(durationText: item.song.durationText)
+        songTitleLabel.text = item.song.titleText
+        artistLabel.text = item.artists.count > 0 ? item.artists[0].nameText : ""
     }
 }

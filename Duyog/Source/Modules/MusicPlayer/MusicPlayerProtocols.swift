@@ -8,51 +8,63 @@
 
 import UIKit
 
-protocol MusicPlayerViewOutputProtocol: class {
-    
-    func play()
-    func pause()
-    func playNext()
-    func playPrevious()
-}
-
-protocol MusicPlayerViewInputProtocol: class {
-    
-    func onPlay()
-    func onPause()
-    func onPlayNext()
-    func onPlayPrevious()
-    func onPlayProgress(_ progress: Float, text: String)
-}
-
-protocol MusicPlayerPresenterProtocol: class {
-    
-    var view: MusicPlayerViewInputProtocol! { get }
-    var interactor: MusicPlayerInteractorInputProtocol! { get }
-    var router: MusicPlayerRouterInputProtocol! { get }
-    var output: MusicPlayerModuleOutputProtocol? { get }
-}
-
 protocol MusicPlayerInteractorInputProtocol: class {
     
-    func playSongWithRemoteURLPath(_ path: String)
+    func playSong(_ index: Int)
+    func playNext()
+    func playPrevious()
+    
+    func togglePlay()
+    func toggleShuffle()
+    func toggleRepeat()
+    
+    func load()
 }
 
 protocol MusicPlayerInteractorOutputProtocol: class {
     
-    func onPlayProgress(_ progress: Float)
+    func onPlay(_ progress: Double, song: Song.Data)
+    func onPause(_ progress: Double, song: Song.Data)
+    
+    func onShuffle(_ enabled: Bool)
+    func onRepeat(_ enabled: Bool)
+    
+    func onLoadSongs(_ songs: [Song.Data])
+    
+    func onPrepareSong(_ index: Int)
 }
 
-protocol MusicPlayerRouterInputProtocol: class {
+protocol MusicPlayerPresenterOutputProtocol: class {
     
-}
-
-protocol MusicPlayerModuleInputProtocol: class {
+    func displaySongs(_ songs: [Song.Display.Item])
     
-    static func create(_ songs: [MusicPlayerSongProtocol], output: MusicPlayerModuleOutputProtocol?) -> UIViewController
+    func displayOnPlay(_ progress: Double, elapsedText: String)
+    func displayOnPause(_ progress: Double, elapsedText: String)
+    
+    func displayOnShuffle(_ enabled: Bool)
+    func displayOnRepeat(_ enabled: Bool)
+    
+    func prepareDisplayOnPlay(_ index: Int)
 }
 
 protocol MusicPlayerModuleOutputProtocol: class {
     
-    func didPlaySong(_ song: MusicPlayerSongProtocol)
+}
+
+protocol MusicPlayerAssemblyProtocol: class {
+    
+    var generator: MusicPlayerViewControllerGeneratorProtocol! { get }
+    
+    func assemble(songs: [Song.Data], moduleOutput: MusicPlayerModuleOutputProtocol?) -> UIViewController
+}
+
+protocol MusicPlayerViewControllerProtocol: class {
+    
+    var interactor: MusicPlayerInteractorInputProtocol! { set get }
+    var moduleOutput: MusicPlayerModuleOutputProtocol? { set get }
+}
+
+protocol MusicPlayerViewControllerGeneratorProtocol: class {
+    
+    func generate() -> MusicPlayerViewControllerProtocol & MusicPlayerPresenterOutputProtocol
 }

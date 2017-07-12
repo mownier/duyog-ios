@@ -8,25 +8,25 @@
 
 import UIKit
 
-class MusicPlayerAssembly: MusicPlayerModuleInputProtocol {
+class MusicPlayerAssembly: MusicPlayerAssemblyProtocol {
     
-    static func create(_ songs: [MusicPlayerSongProtocol], output: MusicPlayerModuleOutputProtocol? = nil) -> UIViewController {
+    var generator: MusicPlayerViewControllerGeneratorProtocol!
+    
+    init(generator: MusicPlayerViewControllerGeneratorProtocol) {
+        self.generator = generator
+    }
+    
+    func assemble(songs: [Song.Data], moduleOutput: MusicPlayerModuleOutputProtocol?) -> UIViewController {
+        let viewController = generator.generate()
+        let interactor = MusicPlayerInteractor(songs: songs)
         let presenter = MusicPlayerPresenter()
-        let router = MusicPlayerRouter()
-        let interactor = MusicPlayerInteractor()
-        let view = MusicPlayerViewController()
-
-        presenter.view = view
-        presenter.interactor = interactor
-        presenter.router = router
-        presenter.output = output
-        presenter.songs = songs
-
-        view.output = presenter
+        
         interactor.output = presenter
+        presenter.output = viewController
         
-        router.viewController = view
+        viewController.interactor = interactor
+        viewController.moduleOutput = moduleOutput
         
-        return view
+        return viewController as! UIViewController
     }
 }

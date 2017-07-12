@@ -6,48 +6,54 @@
 //  Copyright © 2017 Ner. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-protocol MusicPlayerSongProtocol {
+class MusicPlayerPresenter: MusicPlayerInteractorOutputProtocol {
     
-    var duration: Float { get }
-    var titleText: String { get }
-    var albumPhotoURLPath: String { get }
-    var artistText: String { get }
-}
-
-class MusicPlayerPresenter: MusicPlayerPresenterProtocol {
-
-    var router: MusicPlayerRouterInputProtocol!
-    var view: MusicPlayerViewInputProtocol!
-    var interactor: MusicPlayerInteractorInputProtocol!
-    weak var output: MusicPlayerModuleOutputProtocol?
+    weak var output: MusicPlayerPresenterOutputProtocol!
     
-    var songs: [MusicPlayerSongProtocol] = []
-}
-
-extension MusicPlayerPresenter: MusicPlayerViewOutputProtocol {
+    lazy var formatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .second]
+        formatter.unitsStyle = .positional
+        formatter.zeroFormattingBehavior = .pad
+        return formatter
+    }()
     
-    func play() {
-        view.onPlay()
+    func onPrepareSong(_ index: Int) {
+        output.prepareDisplayOnPlay(index)
     }
     
-    func playNext() {
-        view.onPlayNext()
+    func onPlay(_ progress: Double, song data: Song.Data) {
+        output.displayOnPlay(progress, elapsedText: formatter.string(from: progress * data.song.duration) ?? "")
     }
     
-    func playPrevious() {
-        view.onPlayPrevious()
+    func onPause(_ progress: Double, song data: Song.Data) {
+        output.displayOnPause(progress, elapsedText: formatter.string(from: progress * data.song.duration) ?? "")
     }
     
-    func pause() {
-        view.onPause()
+    func onRepeat(_ enabled: Bool) {
+        output.displayOnRepeat(enabled)
     }
-}
-
-extension MusicPlayerPresenter: MusicPlayerInteractorOutputProtocol {
     
-    func onPlayProgress(_ progress: Float) {
-        view.onPlayProgress(progress, text: "\(progress)")
+    func onShuffle(_ enabled: Bool) {
+        output.displayOnShuffle(enabled)
+    }
+    
+    func onLoadSongs(_ songs: [Song.Data]) {
+        output.displaySongs(songs.map({ data in
+            let song = Song.Display(titleText: data.song.title, genreText: data.song.genre, durationText: formatter.string(from: data.song.duration) ?? "")
+            let artists = data.artists.map({ Artist.Display(nameText: $0.name, bioText: $0.bio, genreText: $0.genre) })
+            let albums = data.albums.map({ Album.Display.init(photoURLPath: $0.photoURL, nameText: $0.name, yearText: "\($0.year)") })
+            return Song.Display.Item(song: song, artists: artists, albums: albums)
+        }))
+    }
+    
+    func onPrepareNextSong(_ index: Int) {
+        
+    }
+    
+    func onPreparePreviousSong(_ index: Int) {
+        
     }
 }

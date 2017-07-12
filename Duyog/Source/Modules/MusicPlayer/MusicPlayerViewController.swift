@@ -8,8 +8,12 @@
 
 import UIKit
 
-class MusicPlayerViewController: UIViewController {
+class MusicPlayerViewController: UIViewController, MusicPlayerViewControllerProtocol, FlowControllable {
 
+    var flowController: FlowControllerProtocol!
+    var interactor: MusicPlayerInteractorInputProtocol!
+    var moduleOutput: MusicPlayerModuleOutputProtocol?
+    
     var navigationTitleLabel: UILabel!
     var songTitleLabel: UILabel!
     var artistLabel: UILabel!
@@ -18,7 +22,7 @@ class MusicPlayerViewController: UIViewController {
     var control: MusicPlayerControl!
     var photoPageController: PhotoPageController!
     
-    var items: [MusicPlayerViewItem] = [] {
+    var items: [Song.Display.Item] = [] {
         didSet {
             guard isViewLoaded, items.count > 0 else { return }
             
@@ -28,7 +32,7 @@ class MusicPlayerViewController: UIViewController {
     
     var controlState: MusicPlayerControlState = .pause {
         didSet {
-            guard isViewLoaded else { return }
+            guard isViewLoaded, controlState != oldValue else { return }
             
             control.configure(controlState)
         }
@@ -38,29 +42,10 @@ class MusicPlayerViewController: UIViewController {
         didSet {
             guard currentItemIndex != oldValue, currentItemIndex >= 0, currentItemIndex < items.count else { return }
             
-            let item = items[currentItemIndex]
-            configure(item)
-            controlState = .pause
-            trackView.configure(item.trackItem)
+            configure(items[currentItemIndex])
             photoPageController.collectionView.scrollToItem(at: IndexPath(item: currentItemIndex, section: 0), at: .centeredHorizontally, animated: true)
         }
     }
-    
-    var isRepeated: Bool = false {
-        didSet {
-            var theme = UITheme()
-            control.repeatButton.tintColor = isRepeated ? theme.color.pink : theme.color.gray
-        }
-    }
-    
-    var isShuffled: Bool = false {
-        didSet {
-            var theme = UITheme()
-            control.shuffleButton.tintColor = isShuffled ? theme.color.pink : theme.color.gray
-        }
-    }
-    
-    var output: MusicPlayerViewOutputProtocol!
     
     override func loadView() {
         super.loadView()
@@ -104,7 +89,7 @@ class MusicPlayerViewController: UIViewController {
         
         setupNavigationItem()
         
-        if items.count > 0 { currentItemIndex = 0 }
+        interactor.load()
     }
 
     override func viewDidLayoutSubviews() {
@@ -195,61 +180,23 @@ class MusicPlayerViewController: UIViewController {
 extension MusicPlayerViewController: MusicPlayerControlDelegate {
     
     func musicPlayerControlWillShuffle() {
-        isShuffled = !isShuffled
+        interactor.toggleShuffle()
     }
     
     func musicPlayerControlWillRepeat() {
-        isRepeated = !isRepeated
+        interactor.toggleRepeat()
     }
     
     func musicPlayerControlWillPlayNext() {
-        guard items.count > 0 else { return }
-        
-        let nextIndex: Int
-        
-        if isShuffled {
-            nextIndex = Int(arc4random()) % items.count
-        
-        } else if !isRepeated {
-            nextIndex = currentItemIndex + 1
-        
-        } else {
-            nextIndex = 0
-        }
- 
-        guard nextIndex < items.count else { return }
-        
-        currentItemIndex = nextIndex
+        interactor.playNext()
     }
     
     func musicPlayerControlWillPlayPrevious() {
-        guard items.count > 0 else { return }
-        
-        let prevIndex: Int
-        
-        if isShuffled {
-            prevIndex = Int(arc4random()) % items.count
-        
-        } else if !isRepeated {
-            prevIndex = currentItemIndex - 1
-            
-        } else {
-            prevIndex = 0
-        }
-        
-        guard prevIndex >= 0 else { return }
-        
-        currentItemIndex = prevIndex
+        interactor.playPrevious()
     }
     
     func musicPlayerControlWillPlayCurrent() {
-        switch controlState {
-        case .play:
-            controlState = .pause
-            
-        case .pause:
-            controlState = .play
-        }
+        interactor.togglePlay()
     }
 }
 
@@ -260,7 +207,7 @@ extension MusicPlayerViewController: PhotoPageControllerDataSource {
     }
     
     func photoPageController(_ controller: PhotoPageController, assetFor index: Int) -> PhotoPageAsset {
-        return .remote(items[0].photoURLPath)
+        return .remote(items[index].albums.count > 0 ? items[index].albums[0].photoURLPath : "")
     }
 }
 
@@ -274,29 +221,40 @@ extension MusicPlayerViewController: PhotoPageControllerDelegate {
     }
     
     func photoPageController(_ controller: PhotoPageController, didChoose index: Int) {
-        currentItemIndex = index
+        interactor.playSong(index)
     }
 }
 
-extension MusicPlayerViewController: MusicPlayerViewInputProtocol {
-
-    func onPause() {
+extension MusicPlayerViewController: MusicPlayerPresenterOutputProtocol {
+    
+    func prepareDisplayOnPlay(_ index: Int) {
+        guard index >= 0 && index < items.count else { return }
         
+        currentItemIndex = index
+        controlState = .play
     }
     
-    func onPlayPrevious() {
-        
+    func displayOnPlay(_ progress: Double, elapsedText: String) {
+        trackView.configure(elapsedText: elapsedText, progress: Float(progress))
+        controlState = .play
     }
     
-    func onPlayNext() {
-        
+    func displayOnPause(_ progress: Double, elapsedText: String) {
+        trackView.configure(elapsedText: elapsedText, progress: Float(progress))
+        controlState = .pause
     }
     
-    func onPlay() {
-        
+    func displayOnRepeat(_ enabled: Bool) {
+        var theme = UITheme()
+        control.repeatButton.tintColor = enabled ? theme.color.pink : theme.color.gray
     }
     
-    func onPlayProgress(_ progress: Float, text: String) {
-        trackView.configure(elapsedText: text, progress: progress)
+    func displayOnShuffle(_ enabled: Bool) {
+        var theme = UITheme()
+        control.shuffleButton.tintColor = enabled ? theme.color.pink : theme.color.gray
+    }
+    
+    func displaySongs(_ songs: [Song.Display.Item]) {
+        items = songs
     }
 }
