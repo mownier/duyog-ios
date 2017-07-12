@@ -22,8 +22,12 @@ enum InitialViewControllerState {
     }
 }
 
-class InitialViewController: UIViewController {
-
+class InitialViewController: UIViewController, FlowControllable, InitialViewControllerProtocol {
+    
+    var flowController: FlowControllerProtocol!
+    var interactor: InitialInteractorInputProtocol!
+    weak var moduleOutput: InitialModuleOutputProtocol?
+    
     var goButton: UIButton!
     var footerLabel: UILabel!
     var titleLabel: UILabel!
@@ -233,9 +237,16 @@ class InitialViewController: UIViewController {
     }
     
     func didTapGoButton() {
-        let home = HomeViewController()
-        let nav = home.embedInNavigationController()
-        view.window?.rootViewController = nav
+        switch state {
+        case .passwordReset:
+            interactor.passwordReset.resetPassword(for: passwordResetView.emailTextField.text ?? "")
+            
+        case .signIn:
+            interactor.signIn.sigIn(email: signInView.emailTextField.text ?? "", password: signInView.passwordTextField.text ?? "")
+        
+        case .signUp:
+            interactor.signUp.sigUp(email: signInView.emailTextField.text ?? "", password: signInView.passwordTextField.text ?? "")
+        }
     }
     
     func didChangeValueForTextField(_ textField: UITextField) {
@@ -293,5 +304,38 @@ extension InitialViewController: SignInInputViewDelegate {
     
     func signInInputViewWillResetPassword() {
         state = .passwordReset
+    }
+}
+
+extension InitialViewController: SignInPresenterOutputProtocol {
+    
+    func onSignInError(_ title: String, message: String) {
+        
+    }
+    
+    func onSignInOk() {
+        
+    }
+}
+
+extension InitialViewController: SignUpPresenterOutputProtocol {
+    
+    func onSignUpError(_ title: String, message: String) {
+        
+    }
+    
+    func onSignUpOk() {
+        
+    }
+}
+
+extension InitialViewController: PasswordResetPresenterOutputProtocol {
+    
+    func onResetPasswordError(_ title: String, message: String) {
+        
+    }
+    
+    func onResetPasswordOk() {
+        
     }
 }
