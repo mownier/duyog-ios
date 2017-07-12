@@ -18,12 +18,14 @@ enum FlowModule: FlowModuleProtocol {
     case songList
     case musicPlayer
     case initial
+    case home
     
     var id: String {
         switch self {
         case .songList: return "SongList"
         case .musicPlayer: return "MusicPlayer"
         case .initial: return "Initial"
+        case .home: return "Home"
         }
     }
 }
@@ -46,6 +48,12 @@ extension FlowControllerProtocol {
         let assembly = InitialAssembly(generator: generator)
         let child = assembly.assemble(moduleOutput: moduleOutput)
         enter(state, module: FlowModule.initial, viewController: child)
+    }
+    
+    func showHome(_ state: FlowState, moduleOutput: HomeModuleOutputProtocol? = nil, generator: HomeViewControllerGeneratorProtocol = HomeViewControllerGenerator()) {
+        let assembly = HomeAssembly(generator: generator)
+        let child = assembly.assemble(moduleOutput)
+        enter(state, module: FlowModule.home, viewController: child)
     }
 }
 
