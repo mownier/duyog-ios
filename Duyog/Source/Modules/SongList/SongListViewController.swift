@@ -66,6 +66,8 @@ class SongListViewController: UIViewController, SongListViewControllerProtocol, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        interactor.load()
+        
         setupNavigationItem()
         
         configure(item)
@@ -129,7 +131,7 @@ class SongListViewController: UIViewController, SongListViewControllerProtocol, 
     func didTapPlayButton() {
         guard item.cellItems.count > 0 else { return }
         
-        flowController.showMusicPlayer(.present(self, true, UINavigationController()), songs: [], moduleOutput: nil)
+        interactor.selectSongsToPlay(.all)
     }
 }
 
@@ -159,11 +161,37 @@ extension SongListViewController: UITableViewDelegate {
 
 extension SongListViewController: SongListPresenterOutputProtocol {
     
+    func displayTitle(_ aTitle: String) {
+        title = aTitle
+    }
+    
     func displaySongs(_ type: PresenterSongListType) {
-        
+        switch type {
+        case .artist(let info):
+            var headerItem = SongListHeaderDisplayItem()
+            headerItem.subtitleText = info.artist.genreText
+            headerItem.titleText = info.artist.nameText
+            headerItem.descriptionText = info.artist.bioText
+            
+            let cellItems = info.songs.map({ item -> SongListCellItem in
+                var cellItem = SongListCellDisplayItem()
+                cellItem.titleText = item.song.titleText
+                return cellItem
+            })
+            
+            var viewItem = SongListViewDisplayItem()
+            viewItem.cellItems = cellItems
+            viewItem.coverPhotoURLPath = info.songs.count > 0 ? info.songs[0].albums.count > 0 ? info.songs[0].albums[0].photoURLPath : "" : ""
+            viewItem.headerItem = headerItem
+            
+            item = viewItem
+            
+        default:
+            break
+        }
     }
     
     func playSongs(_ songs: [Song.Data]) {
-
+        flowController.showMusicPlayer(.present(self, true, duyogNavController), songs: songs)
     }
 }
