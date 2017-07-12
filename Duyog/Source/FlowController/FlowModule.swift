@@ -33,5 +33,11 @@ extension FlowControllerProtocol {
         let child = assembly.assemble(type: type, moduleOutput: moduleOutput)
         enter(state, module: FlowModule.songList, viewController: child)
     }
+    
+    func showMusicPlayer(_ state: FlowState, songs: [Song.Data], moduleOutput: MusicPlayerModuleOutputProtocol? = nil, generator: MusicPlayerViewControllerGeneratorProtocol = MusicPlayerViewControllerGenerator()) {
+        let assembly = MusicPlayerAssembly(generator: generator)
+        let child = assembly.assemble(songs: songs, moduleOutput: moduleOutput)
+        enter(state, module: FlowModule.musicPlayer, viewController: child)
+    }
 }
 
