@@ -56,7 +56,9 @@ class MusicPlayerInteractor: MusicPlayerInteractorInputProtocol {
         var newIndex: Int?
         
         if isShuffled {
-            newIndex = Int(arc4random()) % songs.count
+            repeat {
+                newIndex = Int(arc4random()) % songs.count
+            } while(newIndex == index)
             
         } else if index < songs.count - 1  {
             newIndex = index + 1
@@ -76,7 +78,9 @@ class MusicPlayerInteractor: MusicPlayerInteractorInputProtocol {
         var newIndex: Int?
         
         if isShuffled {
-            newIndex = Int(arc4random()) % songs.count
+            repeat {
+                newIndex = Int(arc4random()) % songs.count
+            } while(newIndex == index)
             
         } else if index > 0  {
             newIndex = index - 1
