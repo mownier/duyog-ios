@@ -34,15 +34,8 @@ class MusicPlayerInteractor: MusicPlayerInteractorInputProtocol {
     func playSong(_ index: Int) {
         guard index >= 0 && index < songs.count else { return }
         
-        output.onPrepareSong(index)
-        output.canPlayPrevious(indexGenerator.hasHistory)
-        output.canPlayNext(index < songs.count - 1 || indexGenerator.isShuffled || indexGenerator.isRepeated)
-        
-        let status = service.prepareToPlay(songs[index].song.streamURL)
-        switch status {
-        case .ok: play()
-        default: break
-        }
+        indexGenerator.queue([index])
+        playNext()
     }
     
     func pause() {
@@ -64,7 +57,7 @@ class MusicPlayerInteractor: MusicPlayerInteractorInputProtocol {
     
     func playNext() {
         if let index = indexGenerator.next {
-            playSong(index)
+            playSongAtIndex(index)
             
         } else if !service.isPlaying {
             output.onPause()
@@ -73,7 +66,7 @@ class MusicPlayerInteractor: MusicPlayerInteractorInputProtocol {
     
     func playPrevious() {
         if let index = indexGenerator.previous {
-            playSong(index)
+            playSongAtIndex(index)
             
         } else if !service.isPlaying {
             output.onPause()
@@ -97,6 +90,20 @@ class MusicPlayerInteractor: MusicPlayerInteractorInputProtocol {
     func adjustVolume(_ value: Float) {
         service.volume = value
         output.onAdjustVolume(value)
+    }
+    
+    func playSongAtIndex(_ index: Int) {
+        guard index >= 0 && index < songs.count else { return }
+        
+        output.onPrepareSong(index)
+        output.canPlayPrevious(indexGenerator.hasHistory)
+        output.canPlayNext(index < songs.count - 1 || indexGenerator.isShuffled || indexGenerator.isRepeated)
+        
+        let status = service.prepareToPlay(songs[index].song.streamURL)
+        switch status {
+        case .ok: play()
+        default: break
+        }
     }
 }
 
