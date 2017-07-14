@@ -198,6 +198,18 @@ extension MusicPlayerViewController: MusicPlayerControlDelegate {
     func musicPlayerControlWillPlayCurrent() {
         interactor.togglePlay()
     }
+    
+    func musicPlayerControlWillMuteVolume() {
+        interactor.adjustVolume(0)
+    }
+    
+    func musicPlayerControlWillMaxVolume() {
+        interactor.adjustVolume(1)
+    }
+    
+    func musicPlayerControlWillAdjustVolume(_ volume: Float) {
+        interactor.adjustVolume(volume)
+    }
 }
 
 extension MusicPlayerViewController: PhotoPageControllerDataSource {
@@ -234,14 +246,16 @@ extension MusicPlayerViewController: MusicPlayerPresenterOutputProtocol {
         controlState = .play
     }
     
-    func displayOnPlay(_ progress: Double, elapsedText: String) {
-        trackView.configure(elapsedText: elapsedText, progress: Float(progress))
+    func displayOnPlay() {
         controlState = .play
     }
     
-    func displayOnPause(_ progress: Double, elapsedText: String) {
-        trackView.configure(elapsedText: elapsedText, progress: Float(progress))
+    func displayOnPause() {
         controlState = .pause
+    }
+    
+    func displayOnPlaying(_ progress: Double, elapsedText: String) {
+        trackView.configure(elapsedText: elapsedText, progress: Float(progress))
     }
     
     func displayOnRepeat(_ enabled: Bool) {
@@ -256,5 +270,35 @@ extension MusicPlayerViewController: MusicPlayerPresenterOutputProtocol {
     
     func displaySongs(_ songs: [Song.Display.Item]) {
         items = songs
+    }
+    
+    func enableNext(_ isEnabled: Bool) {
+        var theme = UITheme()
+        if isEnabled {
+            control.nextButton.isUserInteractionEnabled = true
+            control.nextButton.tintColor = .white
+        
+        } else {
+            control.nextButton.isUserInteractionEnabled = false
+            control.nextButton.tintColor = theme.color.gray
+        }
+    }
+    
+    func enablePrevious(_ isEnabled: Bool) {
+        var theme = UITheme()
+        if isEnabled {
+            control.previousButton.isUserInteractionEnabled = true
+            control.previousButton.tintColor = .white
+            
+        } else {
+            control.previousButton.isUserInteractionEnabled = false
+            control.previousButton.tintColor = theme.color.gray
+        }
+    }
+    
+    func displayOnVolumeAdjustment(_ volume: Float) {
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
+            self.control.soundSlider.setValue(volume, animated: true)
+        }) { _ in }
     }
 }
