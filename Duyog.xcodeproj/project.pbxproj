@@ -72,6 +72,7 @@
 		B974C1001F15FAAB00B1A993 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C0FF1F15FAAB00B1A993 /* HomePresenter.swift */; };
 		B974C1021F15FAE700B1A993 /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C1011F15FAE700B1A993 /* HomeAssembly.swift */; };
 		B974C1041F15FBC100B1A993 /* HomeViewControllerGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974C1031F15FBC100B1A993 /* HomeViewControllerGenerator.swift */; };
+		B981F1AB1F171D6C00CDEF52 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B981F1AA1F171D6C00CDEF52 /* AudioToolbox.framework */; };
 		B992BBFB1F048BAD00F063C4 /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BBFA1F048BAD00F063C4 /* HomeContentViewController.swift */; };
 		B992BBFD1F048C4D00F063C4 /* HomeContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BBFC1F048C4D00F063C4 /* HomeContentCell.swift */; };
 		B992BC011F04922E00F063C4 /* HomeContentViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B992BC001F04922E00F063C4 /* HomeContentViewItem.swift */; };
@@ -91,6 +92,9 @@
 		B9A971F91F061BB400ACCA8F /* MusicPlayerTrackViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A971F81F061BB400ACCA8F /* MusicPlayerTrackViewItem.swift */; };
 		B9A971FB1F061D8F00ACCA8F /* MusicPlayerViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A971FA1F061D8F00ACCA8F /* MusicPlayerViewItem.swift */; };
 		B9A971FD1F06369800ACCA8F /* MusicPlayerControlConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A971FC1F06369800ACCA8F /* MusicPlayerControlConfig.swift */; };
+		B9B59D8A1F18588900D11B01 /* AVPlayerServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B59D891F18588900D11B01 /* AVPlayerServiceProtocol.swift */; };
+		B9B59D8E1F186EEE00D11B01 /* RandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B59D8D1F186EEE00D11B01 /* RandomGenerator.swift */; };
+		B9B59D901F1891DC00D11B01 /* MusicPlayerIndexGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B59D8F1F1891DC00D11B01 /* MusicPlayerIndexGenerator.swift */; };
 		B9BBA5741F0B371D00504CFB /* MusicPlayerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BBA5731F0B371D00504CFB /* MusicPlayerProtocols.swift */; };
 		B9DFF0D11F07398700A62E57 /* PhotoPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFF0D01F07398700A62E57 /* PhotoPageController.swift */; };
 		B9E2BAD71F13212D004701AC /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E2BAD61F13212D004701AC /* Playlist.swift */; };
@@ -194,6 +198,8 @@
 		B974C0FF1F15FAAB00B1A993 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		B974C1011F15FAE700B1A993 /* HomeAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
 		B974C1031F15FBC100B1A993 /* HomeViewControllerGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerGenerator.swift; sourceTree = "<group>"; };
+		B981F1A81F171D6C00CDEF52 /* Duyog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Duyog.entitlements; sourceTree = "<group>"; };
+		B981F1AA1F171D6C00CDEF52 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B992BBFA1F048BAD00F063C4 /* HomeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
 		B992BBFC1F048C4D00F063C4 /* HomeContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentCell.swift; sourceTree = "<group>"; };
 		B992BC001F04922E00F063C4 /* HomeContentViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentViewItem.swift; sourceTree = "<group>"; };
@@ -214,6 +220,9 @@
 		B9A971F81F061BB400ACCA8F /* MusicPlayerTrackViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTrackViewItem.swift; sourceTree = "<group>"; };
 		B9A971FA1F061D8F00ACCA8F /* MusicPlayerViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewItem.swift; sourceTree = "<group>"; };
 		B9A971FC1F06369800ACCA8F /* MusicPlayerControlConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerControlConfig.swift; sourceTree = "<group>"; };
+		B9B59D891F18588900D11B01 /* AVPlayerServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerServiceProtocol.swift; sourceTree = "<group>"; };
+		B9B59D8D1F186EEE00D11B01 /* RandomGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomGenerator.swift; sourceTree = "<group>"; };
+		B9B59D8F1F1891DC00D11B01 /* MusicPlayerIndexGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerIndexGenerator.swift; sourceTree = "<group>"; };
 		B9BBA5731F0B371D00504CFB /* MusicPlayerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerProtocols.swift; sourceTree = "<group>"; };
 		B9DFF0D01F07398700A62E57 /* PhotoPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPageController.swift; sourceTree = "<group>"; };
 		B9E2BAD61F13212D004701AC /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
@@ -233,6 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B981F1AB1F171D6C00CDEF52 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +302,7 @@
 				B913CEA11F00A4AF00916D40 /* DuyogTests */,
 				B913CEAC1F00A4AF00916D40 /* DuyogUITests */,
 				B913CE8B1F00A4AF00916D40 /* Products */,
+				B981F1A91F171D6C00CDEF52 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -308,6 +319,7 @@
 		B913CE8C1F00A4AF00916D40 /* Duyog */ = {
 			isa = PBXGroup;
 			children = (
+				B981F1A81F171D6C00CDEF52 /* Duyog.entitlements */,
 				B913CE991F00A4AF00916D40 /* Info.plist */,
 				B96CA50B1F00A9CA007422A7 /* Resources */,
 				B96CA50E1F00AA65007422A7 /* Source */,
@@ -370,6 +382,7 @@
 				B9E2BAEA1F133255004701AC /* FlowController */,
 				B96CA5181F00AF36007422A7 /* Helpers */,
 				B96CA5141F00AADD007422A7 /* Modules */,
+				B9B59D881F18586F00D11B01 /* Services */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -410,10 +423,11 @@
 			children = (
 				B96CA51B1F00B5B7007422A7 /* GradientView.swift */,
 				B95C9E491F021DF800A5D6CB /* KeyboardObserverProtocol.swift */,
+				B9DFF0D01F07398700A62E57 /* PhotoPageController.swift */,
+				B9B59D8D1F186EEE00D11B01 /* RandomGenerator.swift */,
 				B992BC081F04A46300F063C4 /* ReusableProtocol.swift */,
 				B96CA5191F00AF4E007422A7 /* UITheme.swift */,
 				B9A971F31F05F56200ACCA8F /* UIViewExtension.swift */,
-				B9DFF0D01F07398700A62E57 /* PhotoPageController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -563,6 +577,14 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
+		B981F1A91F171D6C00CDEF52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B981F1AA1F171D6C00CDEF52 /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B9A895651F04BF71008C5833 /* SongList */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +601,14 @@
 				B9CB86E01F14648900804956 /* Screen */,
 			);
 			path = MusicPlayer;
+			sourceTree = "<group>";
+		};
+		B9B59D881F18586F00D11B01 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B9B59D891F18588900D11B01 /* AVPlayerServiceProtocol.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B9CB86E01F14648900804956 /* Screen */ = {
@@ -602,6 +632,7 @@
 				B92ADBBA1F0CBCE5000799B1 /* MusicPlayerInteractor.swift */,
 				B92ADBAF1F0CAB59000799B1 /* MusicPlayerPresenter.swift */,
 				B9BBA5731F0B371D00504CFB /* MusicPlayerProtocols.swift */,
+				B9B59D8F1F1891DC00D11B01 /* MusicPlayerIndexGenerator.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -712,6 +743,14 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 4WBRGV5Z9M;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
 					};
 					B913CE9D1F00A4AF00916D40 = {
 						CreatedOnToolsVersion = 8.0;
@@ -805,6 +844,7 @@
 				B95C9E481F020B7600A5D6CB /* InitialAnimator.swift in Sources */,
 				B92ADBB51F0CAE75000799B1 /* Artist.swift in Sources */,
 				B974C0DE1F15E30F00B1A993 /* SignUpInteractor.swift in Sources */,
+				B9B59D8A1F18588900D11B01 /* AVPlayerServiceProtocol.swift in Sources */,
 				B974C0E81F15E42600B1A993 /* PasswordResetModels.swift in Sources */,
 				B992BBFD1F048C4D00F063C4 /* HomeContentCell.swift in Sources */,
 				B92ADBB91F0CBC7A000799B1 /* MusicPlayerAssembly.swift in Sources */,
@@ -844,6 +884,7 @@
 				B974C0E51F15E3B600B1A993 /* PasswordResetProtocols.swift in Sources */,
 				B95C9E421F01F9DC00A5D6CB /* SignInInputView.swift in Sources */,
 				B974C0E01F15E32D00B1A993 /* SignUpPresenter.swift in Sources */,
+				B9B59D8E1F186EEE00D11B01 /* RandomGenerator.swift in Sources */,
 				B96CA5171F00AAF5007422A7 /* SignInViewController.swift in Sources */,
 				B974C0F31F15EAFE00B1A993 /* InitialProtocols.swift in Sources */,
 				B974C0CD1F15DEBE00B1A993 /* SignInModels.swift in Sources */,
@@ -854,6 +895,7 @@
 				B96CA5111F00AA65007422A7 /* AppDelegate.swift in Sources */,
 				B90B0C571F14701100462BDF /* ArtistDisplay.swift in Sources */,
 				B90B0C601F14C8EB00462BDF /* MusicPlayerViewControllerGenerator.swift in Sources */,
+				B9B59D901F1891DC00D11B01 /* MusicPlayerIndexGenerator.swift in Sources */,
 				B992BC031F0492BB00F063C4 /* HomeContentCellItem.swift in Sources */,
 				B9A971FB1F061D8F00ACCA8F /* MusicPlayerViewItem.swift in Sources */,
 				B992BBFB1F048BAD00F063C4 /* HomeContentViewController.swift in Sources */,
@@ -1021,6 +1063,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Duyog/Duyog.entitlements;
 				DEVELOPMENT_TEAM = 4WBRGV5Z9M;
 				INFOPLIST_FILE = Duyog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1034,6 +1077,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Duyog/Duyog.entitlements;
 				DEVELOPMENT_TEAM = 4WBRGV5Z9M;
 				INFOPLIST_FILE = Duyog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
