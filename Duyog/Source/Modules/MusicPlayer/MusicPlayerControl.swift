@@ -15,6 +15,9 @@ protocol MusicPlayerControlDelegate: class {
     func musicPlayerControlWillPlayNext()
     func musicPlayerControlWillPlayCurrent()
     func musicPlayerControlWillShuffle()
+    func musicPlayerControlWillMuteVolume()
+    func musicPlayerControlWillMaxVolume()
+    func musicPlayerControlWillAdjustVolume(_ volume: Float)
 }
 
 class MusicPlayerControl: UIView {
@@ -142,11 +145,13 @@ class MusicPlayerControl: UIView {
         minSoundButton.tintColor = theme.color.gray
         minSoundButton.setImage(#imageLiteral(resourceName: "icon_mute"), for: .normal)
         minSoundButton.setImage(#imageLiteral(resourceName: "icon_mute"), for: .highlighted)
+        minSoundButton.addTarget(self, action: #selector(self.didTapMinSoundButton), for: .touchUpInside)
         
         maxSoundButton = UIButton()
         maxSoundButton.tintColor = theme.color.gray
         maxSoundButton.setImage(#imageLiteral(resourceName: "icon_sounds"), for: .normal)
         maxSoundButton.setImage(#imageLiteral(resourceName: "icon_sounds"), for: .highlighted)
+        maxSoundButton.addTarget(self, action: #selector(self.didTapMaxSoundButton), for: .touchUpInside)
         
         soundSlider = UISlider()
         soundSlider.tintColor = theme.color.gray
@@ -155,6 +160,7 @@ class MusicPlayerControl: UIView {
         soundSlider.maximumTrackTintColor = theme.color.gray.withAlphaComponent(0.2)
         soundSlider.minimumTrackTintColor = theme.color.gray
         soundSlider.setThumbImage(#imageLiteral(resourceName: "thumb_sound_slider"), for: .normal)
+        soundSlider.addTarget(self, action: #selector(self.didSoundSliderChangeValue), for: .valueChanged)
         
         addSubview(repeatButton)
         addSubview(previousButton)
@@ -184,5 +190,17 @@ class MusicPlayerControl: UIView {
     
     func didTapShuffleButton() {
         delegate?.musicPlayerControlWillShuffle()
+    }
+    
+    func didTapMinSoundButton() {
+        delegate?.musicPlayerControlWillMuteVolume()
+    }
+    
+    func didTapMaxSoundButton() {
+        delegate?.musicPlayerControlWillMaxVolume()
+    }
+    
+    func didSoundSliderChangeValue() {
+        delegate?.musicPlayerControlWillAdjustVolume(soundSlider.value)
     }
 }
