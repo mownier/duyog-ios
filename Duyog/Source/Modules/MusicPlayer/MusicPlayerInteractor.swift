@@ -6,101 +6,107 @@
 //  Copyright © 2017 Ner. All rights reserved.
 //
 
-import Foundation
+import AVFoundation
 
 class MusicPlayerInteractor: MusicPlayerInteractorInputProtocol {
 
     var output: MusicPlayerInteractorOutputProtocol!
     var songs: [Song.Data]
-    var currentIndex: Int?
-    var isRepeated: Bool = false { didSet { output?.onRepeat(isRepeated) } }
-    var isShuffled: Bool = false { didSet { output?.onShuffle(isShuffled) } }
-    var isPlaying: Bool = false
+    var service: AVPlayerServiceProtocol
+    var indexGenerator: MusicPlayerIndexGeneratorProtocol
     
-    init(songs: [Song.Data]) {
+    init(songs: [Song.Data], service: AVPlayerServiceProtocol, indexGenerator: MusicPlayerIndexGeneratorProtocol) {
         self.songs = songs
+        self.service = service
+        self.indexGenerator = indexGenerator
     }
     
     func load() {
         guard songs.count > 0 else { return }
         
         output.onLoadSongs(songs)
-        playSong(0)
+        output.onRepeat(indexGenerator.isRepeated)
+        output.onShuffle(indexGenerator.isShuffled)
+        output.onAdjustVolume(service.volume)
+        playNext()
     }
     
     func playSong(_ index: Int) {
         guard index >= 0 && index < songs.count else { return }
         
-        currentIndex = index
         output.onPrepareSong(index)
-        play()
+        output.canPlayPrevious(indexGenerator.hasHistory)
+        output.canPlayNext(index < songs.count - 1 || indexGenerator.isShuffled || indexGenerator.isRepeated)
+        
+        let status = service.prepareToPlay(songs[index].song.streamURL)
+        switch status {
+        case .ok: play()
+        default: break
+        }
     }
     
     func pause() {
-        guard let index = currentIndex, index >= 0 && index < songs.count else { return }
-        
-        isPlaying = false
-        output.onPause(0, song: songs[index])
+        let status = service.pause()
+        switch status {
+        case .ok: output.onPause()
+        default: break
+        }
     }
     
     func play() {
-        guard let index = currentIndex, index >= 0 && index < songs.count else { return }
-        
-        isPlaying = true
-        output.onPlay(0, song: songs[index])
+        let status = service.play()
+        switch status {
+        case .ok: output.onPlay()
+        case .noPlayableItem: playNext()
+        default: break
+        }   
     }
     
     func playNext() {
-        guard let index = currentIndex else { return }
-        
-        var newIndex: Int?
-        
-        if isShuffled {
-            repeat {
-                newIndex = Int(arc4random()) % songs.count
-            } while(newIndex == index)
+        if let index = indexGenerator.next {
+            playSong(index)
             
-        } else if index < songs.count - 1  {
-            newIndex = index + 1
-            
-        } else if isRepeated {
-            newIndex = 0
-        }
-        
-        if newIndex != nil {
-            playSong(newIndex!)
+        } else if !service.isPlaying {
+            output.onPause()
         }
     }
     
     func playPrevious() {
-        guard let index = currentIndex else { return }
-        
-        var newIndex: Int?
-        
-        if isShuffled {
-            repeat {
-                newIndex = Int(arc4random()) % songs.count
-            } while(newIndex == index)
+        if let index = indexGenerator.previous {
+            playSong(index)
             
-        } else if index > 0  {
-            newIndex = index - 1
-            
-        } else if isRepeated {
-            newIndex = songs.count - 1
+        } else if !service.isPlaying {
+            output.onPause()
         }
-        
-        if newIndex != nil { playSong(newIndex!) }
     }
     
     func toggleRepeat() {
-        isRepeated = !isRepeated
+        indexGenerator.isRepeated = !indexGenerator.isRepeated
+        output.onRepeat(indexGenerator.isRepeated)
     }
     
     func toggleShuffle() {
-        isShuffled = !isShuffled
+        indexGenerator.isShuffled = !indexGenerator.isShuffled
+        output.onShuffle(indexGenerator.isShuffled)
     }
 
     func togglePlay() {
-        if isPlaying { pause() } else { play() }
+        if service.isPlaying { pause() } else { play() }
+    }
+    
+    func adjustVolume(_ value: Float) {
+        service.volume = value
+        output.onAdjustVolume(value)
+    }
+}
+
+extension MusicPlayerInteractor: AVPlayerServiceDelegate {
+    
+    func onPlaying(_ progress: Double, duration: Double) {
+        output.onPlaying(progress, duration: duration)
+    }
+    
+    func onEnd() {
+        playNext()
     }
 }
