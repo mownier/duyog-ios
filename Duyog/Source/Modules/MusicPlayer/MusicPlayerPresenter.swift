@@ -21,27 +21,31 @@ class MusicPlayerPresenter: MusicPlayerInteractorOutputProtocol {
     }()
     
     func onPrepareSong(_ index: Int) {
-        output.prepareDisplayOnPlay(index)
+        output?.prepareDisplayOnPlay(index)
     }
     
-    func onPlay(_ progress: Double, song data: Song.Data) {
-        output.displayOnPlay(progress, elapsedText: formatter.string(from: progress * data.song.duration) ?? "")
+    func onPlay() {
+        output?.displayOnPlay()
     }
     
-    func onPause(_ progress: Double, song data: Song.Data) {
-        output.displayOnPause(progress, elapsedText: formatter.string(from: progress * data.song.duration) ?? "")
+    func onPause() {
+        output?.displayOnPause()
+    }
+    
+    func onPlaying(_ progress: Double, duration: Double) {
+         output?.displayOnPlaying(progress, elapsedText: formatter.string(from: progress * duration) ?? "")
     }
     
     func onRepeat(_ enabled: Bool) {
-        output.displayOnRepeat(enabled)
+        output?.displayOnRepeat(enabled)
     }
     
     func onShuffle(_ enabled: Bool) {
-        output.displayOnShuffle(enabled)
+        output?.displayOnShuffle(enabled)
     }
     
     func onLoadSongs(_ songs: [Song.Data]) {
-        output.displaySongs(songs.map({ data in
+        output?.displaySongs(songs.map({ data in
             let song = Song.Display(titleText: data.song.title, genreText: data.song.genre, durationText: formatter.string(from: data.song.duration) ?? "")
             let artists = data.artists.map({ Artist.Display(nameText: $0.name, bioText: $0.bio, genreText: $0.genre) })
             let albums = data.albums.map({ Album.Display.init(photoURLPath: $0.photoURL, nameText: $0.name, yearText: "\($0.year)") })
@@ -49,11 +53,15 @@ class MusicPlayerPresenter: MusicPlayerInteractorOutputProtocol {
         }))
     }
     
-    func onPrepareNextSong(_ index: Int) {
-        
+    func canPlayNext(_ canPlay: Bool) {
+        output?.enableNext(canPlay)
     }
     
-    func onPreparePreviousSong(_ index: Int) {
-        
+    func canPlayPrevious(_ canPlay: Bool) {
+        output?.enablePrevious(canPlay)
+    }
+    
+    func onAdjustVolume(_ volume: Float) {
+        output?.displayOnVolumeAdjustment(volume)
     }
 }
