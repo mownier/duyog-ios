@@ -19,12 +19,14 @@ protocol MusicPlayerInteractorInputProtocol: class {
     func toggleRepeat()
     
     func load()
+    func adjustVolume(_ volume: Float)
 }
 
 protocol MusicPlayerInteractorOutputProtocol: class {
     
-    func onPlay(_ progress: Double, song: Song.Data)
-    func onPause(_ progress: Double, song: Song.Data)
+    func onPlaying(_ progress: Double, duration: Double)
+    func onPlay()
+    func onPause()
     
     func onShuffle(_ enabled: Bool)
     func onRepeat(_ enabled: Bool)
@@ -32,19 +34,29 @@ protocol MusicPlayerInteractorOutputProtocol: class {
     func onLoadSongs(_ songs: [Song.Data])
     
     func onPrepareSong(_ index: Int)
+    
+    func canPlayPrevious(_ canPlay: Bool)
+    func canPlayNext(_ canPlay: Bool)
+    
+    func onAdjustVolume(_ volume: Float)
 }
 
 protocol MusicPlayerPresenterOutputProtocol: class {
     
     func displaySongs(_ songs: [Song.Display.Item])
     
-    func displayOnPlay(_ progress: Double, elapsedText: String)
-    func displayOnPause(_ progress: Double, elapsedText: String)
+    func displayOnPlay()
+    func displayOnPause()
+    func displayOnPlaying(_ progress: Double, elapsedText: String)
     
     func displayOnShuffle(_ enabled: Bool)
     func displayOnRepeat(_ enabled: Bool)
     
     func prepareDisplayOnPlay(_ index: Int)
+    func enableNext(_ isEnabled: Bool)
+    func enablePrevious(_ isEnabled: Bool)
+    
+    func displayOnVolumeAdjustment(_ volume: Float)
 }
 
 protocol MusicPlayerModuleOutputProtocol: class {
@@ -67,4 +79,14 @@ protocol MusicPlayerViewControllerProtocol: class {
 protocol MusicPlayerViewControllerGeneratorProtocol: class {
     
     func generate() -> MusicPlayerViewControllerProtocol & MusicPlayerPresenterOutputProtocol
+}
+
+protocol MusicPlayerIndexGeneratorProtocol: class {
+    
+    var isRepeated: Bool { set get }
+    var isShuffled: Bool { set get }
+    
+    var next: Int? { get }
+    var previous: Int? { get }
+    var hasHistory: Bool { get }
 }
