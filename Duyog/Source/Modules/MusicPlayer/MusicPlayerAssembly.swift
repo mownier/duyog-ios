@@ -17,9 +17,13 @@ class MusicPlayerAssembly: MusicPlayerAssemblyProtocol {
     }
     
     func assemble(songs: [Song.Data], moduleOutput: MusicPlayerModuleOutputProtocol?) -> UIViewController {
+        let service = AVPlayerService()
+        let indexGenerator = MusicPlayerIndexGenerator(base: songs.count)
         let viewController = generator.generate()
-        let interactor = MusicPlayerInteractor(songs: songs)
+        let interactor = MusicPlayerInteractor(songs: songs, service: service, indexGenerator: indexGenerator)
         let presenter = MusicPlayerPresenter()
+        
+        service.delegate = interactor
         
         interactor.output = presenter
         presenter.output = viewController
