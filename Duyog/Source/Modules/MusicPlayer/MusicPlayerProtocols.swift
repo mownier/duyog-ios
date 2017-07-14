@@ -89,4 +89,6 @@ protocol MusicPlayerIndexGeneratorProtocol: class {
     var next: Int? { get }
     var previous: Int? { get }
     var hasHistory: Bool { get }
+    
+    func queue(_ indices: [Int])
 }
