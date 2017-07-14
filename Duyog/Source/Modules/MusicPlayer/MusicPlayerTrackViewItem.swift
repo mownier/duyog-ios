@@ -18,6 +18,9 @@ extension MusicPlayerTrackView: MusicPlayerTrackViewConfig {
     
     func configure(durationText: String) {
         endLabel.text = durationText
+        
+        setNeedsLayout()
+        layoutIfNeeded()
     }
     
     func configure(elapsedText: String, progress: Float) {
@@ -26,5 +29,8 @@ extension MusicPlayerTrackView: MusicPlayerTrackViewConfig {
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
             self.slider.setValue(progress, animated: true)
         }) { _ in }
+        
+        setNeedsLayout()
+        layoutIfNeeded()
     }
 }
