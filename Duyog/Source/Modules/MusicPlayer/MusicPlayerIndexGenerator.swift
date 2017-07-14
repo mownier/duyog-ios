@@ -15,6 +15,7 @@ class MusicPlayerIndexGenerator: MusicPlayerIndexGeneratorProtocol {
     var isRepeated: Bool = false
     var isShuffled: Bool = false
     
+    var indexQueue: [Int] = []
     var indexHistory: [Int] = []
     var currentIndex: Int? {
         return indexHistory.last
@@ -32,7 +33,10 @@ class MusicPlayerIndexGenerator: MusicPlayerIndexGeneratorProtocol {
         
         var newIndex: Int?
         
-        if isShuffled && base > 1 {
+        if !indexQueue.isEmpty {
+            newIndex = indexQueue.removeFirst()
+            
+        } else if isShuffled && base > 1 {
             repeat {
                 newIndex = randomizer.generate(base)
             } while(newIndex == currentIndex)
@@ -55,5 +59,13 @@ class MusicPlayerIndexGenerator: MusicPlayerIndexGeneratorProtocol {
     init(base: Int, randomizer: RandomGeneratorProtocol = RandomGenerator()) {
         self.randomizer = randomizer
         self.base = base
+    }
+    
+    func forceNext(_ index: Int) {
+        indexHistory.append(index)
+    }
+    
+    func queue(_ indices: [Int]) {
+        indexQueue.append(contentsOf: indices)
     }
 }
