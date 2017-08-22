@@ -16,21 +16,6 @@ protocol AuthService: class {
     func refreshAccessToken(_ refreshToken: String, expiry: Int64, completion: @escaping (ServiceResult<Auth>) -> Void)
 }
 
-struct AuthServiceRoute {
-    
-    var signIn: String
-    var signUp: String
-    var changePass: String
-    var refresh: String
-    
-    init(signIn: String = "", signUp: String = "", changePass: String = "", refresh: String = "") {
-        self.signIn = signIn
-        self.signUp = signUp
-        self.changePass = changePass
-        self.refresh = refresh
-    }
-}
-
 class AuthRemoteService: AuthService {
     
     private(set) var route: AuthServiceRoute
