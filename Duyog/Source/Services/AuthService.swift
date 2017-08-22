@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ner. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol AuthService: class {
     
