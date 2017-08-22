@@ -143,7 +143,7 @@ class HomeViewController: UIViewController, FlowControllable, HomeViewController
             title: "A Head Full of Dreams",
             genre: artist.genre,
             duration: 223,
-            streamURL: "http://127.0.0.1:9000/music/Jeepney Love Story.mp3".addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+            streamURL: "http://127.0.0.1:9003/v1/file/song/b6d6qk92d7s0nv0i27pg/audio/b6d7kkh2d7s0t9hcg0v0.mp3?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjZkNm82MTJkN3MwbnVxYmZqNmciLCJjbGllbnRfaWQiOiJiNmQ2bmZwMmQ3czBvOGZ2MWw0ZyIsImV4cCI6MTUwMzg5NzI5MSwiaWF0IjoxNTAzMjkyNDkxfQ.Ftn_T2rTnQeJ5KC9A21KiNCZhQsq9Atbju_SORRxq5s"
         )
         var songData = Song.Data(
             song: song,
