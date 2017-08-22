@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>base_url</key>
+	<string>http://127.0.0.1:9002</string>
+	<key>version</key>
+	<string>v1</string>
+	<key>user_get_playlists</key>
+	<string>user/%@/playlists</string>
+	<key>user_register</key>
+	<string>user/register</string>
+	<key>user_get_info</key>
+	<string>user/%@</string>
+</dict>
+</plist>
