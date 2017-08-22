@@ -82,6 +82,12 @@
 		B9A767E61F4BF7A100D7EFC1 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A767E31F4BF7A100D7EFC1 /* JSONSerializer.swift */; };
 		B9A767E71F4BF7A100D7EFC1 /* RemoteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A767E41F4BF7A100D7EFC1 /* RemoteRequest.swift */; };
 		B9A767E81F4BF7A100D7EFC1 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A767E51F4BF7A100D7EFC1 /* URLRequestBuilder.swift */; };
+		B9A767EC1F4BFA2600D7EFC1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A767EB1F4BFA2600D7EFC1 /* UserService.swift */; };
+		B9A767EE1F4BFB4500D7EFC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A767ED1F4BFB4500D7EFC1 /* User.swift */; };
+		B9A767F21F4C066200D7EFC1 /* PlistReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A767F11F4C066200D7EFC1 /* PlistReader.swift */; };
+		B9A767F41F4C0AB100D7EFC1 /* DataServiceRoute.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9A767F31F4C0AB100D7EFC1 /* DataServiceRoute.plist */; };
+		B9A767F61F4C0D8000D7EFC1 /* UserServiceRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A767F51F4C0D8000D7EFC1 /* UserServiceRoute.swift */; };
+		B9A767F91F4C0DC000D7EFC1 /* AuthServiceRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A767F81F4C0DC000D7EFC1 /* AuthServiceRoute.swift */; };
 		B9A895681F04BF71008C5833 /* SongListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A895661F04BF71008C5833 /* SongListHeader.swift */; };
 		B9A895691F04BF71008C5833 /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A895671F04BF71008C5833 /* SongListViewController.swift */; };
 		B9A8956B1F04C190008C5833 /* SongListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8956A1F04C190008C5833 /* SongListCell.swift */; };
@@ -215,6 +221,12 @@
 		B9A767E31F4BF7A100D7EFC1 /* JSONSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializer.swift; sourceTree = "<group>"; };
 		B9A767E41F4BF7A100D7EFC1 /* RemoteRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteRequest.swift; sourceTree = "<group>"; };
 		B9A767E51F4BF7A100D7EFC1 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
+		B9A767EB1F4BFA2600D7EFC1 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		B9A767ED1F4BFB4500D7EFC1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B9A767F11F4C066200D7EFC1 /* PlistReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistReader.swift; sourceTree = "<group>"; };
+		B9A767F31F4C0AB100D7EFC1 /* DataServiceRoute.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataServiceRoute.plist; sourceTree = "<group>"; };
+		B9A767F51F4C0D8000D7EFC1 /* UserServiceRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceRoute.swift; sourceTree = "<group>"; };
+		B9A767F81F4C0DC000D7EFC1 /* AuthServiceRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthServiceRoute.swift; sourceTree = "<group>"; };
 		B9A895661F04BF71008C5833 /* SongListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListHeader.swift; sourceTree = "<group>"; };
 		B9A895671F04BF71008C5833 /* SongListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListViewController.swift; sourceTree = "<group>"; };
 		B9A8956A1F04C190008C5833 /* SongListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListCell.swift; sourceTree = "<group>"; };
@@ -283,6 +295,7 @@
 				B9D5A9351F4AB42700C5C0BB /* Auth.swift */,
 				B9E2BAD61F13212D004701AC /* Playlist.swift */,
 				B92ADBB21F0CAE46000799B1 /* Song.swift */,
+				B9A767ED1F4BFB4500D7EFC1 /* User.swift */,
 			);
 			name = BusinessLogic;
 			sourceTree = "<group>";
@@ -438,6 +451,7 @@
 				B9A767E31F4BF7A100D7EFC1 /* JSONSerializer.swift */,
 				B95C9E491F021DF800A5D6CB /* KeyboardObserverProtocol.swift */,
 				B9DFF0D01F07398700A62E57 /* PhotoPageController.swift */,
+				B9A767F11F4C066200D7EFC1 /* PlistReader.swift */,
 				B9B59D8D1F186EEE00D11B01 /* RandomGenerator.swift */,
 				B9A767E41F4BF7A100D7EFC1 /* RemoteRequest.swift */,
 				B992BC081F04A46300F063C4 /* ReusableProtocol.swift */,
@@ -614,8 +628,20 @@
 			children = (
 				B9D5A9331F4AB3B000C5C0BB /* AuthService.swift */,
 				B9D5A9371F4AB59500C5C0BB /* ServiceResult.swift */,
+				B9A767EB1F4BFA2600D7EFC1 /* UserService.swift */,
+				B9A767F71F4C0DA100D7EFC1 /* Route */,
 			);
 			name = Remote;
+			sourceTree = "<group>";
+		};
+		B9A767F71F4C0DA100D7EFC1 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				B9A767F31F4C0AB100D7EFC1 /* DataServiceRoute.plist */,
+				B9A767F81F4C0DC000D7EFC1 /* AuthServiceRoute.swift */,
+				B9A767F51F4C0D8000D7EFC1 /* UserServiceRoute.swift */,
+			);
+			name = Route;
 			sourceTree = "<group>";
 		};
 		B9A895651F04BF71008C5833 /* SongList */ = {
@@ -836,6 +862,7 @@
 				B96CA5281F00D30F007422A7 /* OpenSans-Bold.ttf in Resources */,
 				B913CE931F00A4AF00916D40 /* Main.storyboard in Resources */,
 				B96CA52D1F00D30F007422A7 /* OpenSans-Light.ttf in Resources */,
+				B9A767F41F4C0AB100D7EFC1 /* DataServiceRoute.plist in Resources */,
 				B96CA5291F00D30F007422A7 /* OpenSans-BoldItalic.ttf in Resources */,
 				B96CA52A1F00D30F007422A7 /* OpenSans-ExtraBold.ttf in Resources */,
 			);
@@ -922,7 +949,9 @@
 				B974C0E51F15E3B600B1A993 /* PasswordResetProtocols.swift in Sources */,
 				B95C9E421F01F9DC00A5D6CB /* SignInInputView.swift in Sources */,
 				B974C0E01F15E32D00B1A993 /* SignUpPresenter.swift in Sources */,
+				B9A767F21F4C066200D7EFC1 /* PlistReader.swift in Sources */,
 				B9B59D8E1F186EEE00D11B01 /* RandomGenerator.swift in Sources */,
+				B9A767F61F4C0D8000D7EFC1 /* UserServiceRoute.swift in Sources */,
 				B9D5A9361F4AB42700C5C0BB /* Auth.swift in Sources */,
 				B96CA5171F00AAF5007422A7 /* SignInViewController.swift in Sources */,
 				B974C0F31F15EAFE00B1A993 /* InitialProtocols.swift in Sources */,
@@ -930,6 +959,7 @@
 				B9DFF0D11F07398700A62E57 /* PhotoPageController.swift in Sources */,
 				B92ADBBB1F0CBCE5000799B1 /* MusicPlayerInteractor.swift in Sources */,
 				B95C9E461F02034000A5D6CB /* PasswordResetInputView.swift in Sources */,
+				B9A767EE1F4BFB4500D7EFC1 /* User.swift in Sources */,
 				B96CA51C1F00B5B7007422A7 /* GradientView.swift in Sources */,
 				B96CA5111F00AA65007422A7 /* AppDelegate.swift in Sources */,
 				B90B0C571F14701100462BDF /* ArtistDisplay.swift in Sources */,
@@ -946,6 +976,8 @@
 				B91232081F038DAA0021A078 /* HomeHeader.swift in Sources */,
 				B974C1001F15FAAB00B1A993 /* HomePresenter.swift in Sources */,
 				B974C0CF1F15E00500B1A993 /* SignInInteractor.swift in Sources */,
+				B9A767F91F4C0DC000D7EFC1 /* AuthServiceRoute.swift in Sources */,
+				B9A767EC1F4BFA2600D7EFC1 /* UserService.swift in Sources */,
 				B90B0C5D1F14705000462BDF /* PlaylistDisplay.swift in Sources */,
 				B92ADBB71F0CAF01000799B1 /* Album.swift in Sources */,
 				B90B0C5B1F14704400462BDF /* AlbumDisplay.swift in Sources */,
